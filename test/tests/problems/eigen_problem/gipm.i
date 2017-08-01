@@ -6,8 +6,8 @@
   ymin = 0
   ymax = 100
   elem_type = QUAD4
-  nx = 64
-  ny = 64
+  nx = 8
+  ny = 8
 
   displacements = 'x_disp y_disp'
 []
@@ -90,12 +90,16 @@
   eigen_problem_type = gen_non_hermitian
   n_eigen_pairs = 1
   n_basis_vectors = 18
+  which_eigen_pairs = TARGET_MAGNITUDE
 []
 
 [Executioner]
   type = Steady
-  eigen_solve_type = jacobi_davidson
-  petsc_options = '-eps_view'
+  eigen_solve_type = MF_NONLINEAR_POWER
+  petsc_options = '-eps_view -eps_power_snes_monitor -eps_power_ksp_monitor'
+  petsc_options_iname = '-eps_max_it -eps_power_snes_max_it
+  -eps_power_snes_rtol  -eps_power_ksp_rtol -eps_power_ksp_pc_side -eps_power_snes_linesearch_type'
+  petsc_options_value = '2 1 1.0 1e-02 right basic'
 []
 
 [VectorPostprocessors]
@@ -112,4 +116,5 @@
     type = Console
     outlier_variable_norms = false
   [../]
+  print_perf_log = true
 []

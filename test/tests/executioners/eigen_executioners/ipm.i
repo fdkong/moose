@@ -96,15 +96,16 @@
 [Executioner]
   type = InversePowerMethod
 
-  min_power_iterations = 11
-  max_power_iterations = 400
-  Chebyshev_acceleration_on = true
+  min_power_iterations = 2
+  max_power_iterations = 2
+  Chebyshev_acceleration_on = false
   eig_check_tol = 1e-12
-  k0 = 0.5
+  k0 = 0.4
 
   bx_norm = 'unorm'
   xdiff = 'udiff'
   normalization = 'unorm'
+  line_search = none
 
   #Preconditioned JFNK (default)
   solve_type = 'PJFNK'
@@ -114,9 +115,9 @@
   active = 'unorm udiff'
 
   [./unorm]
-    type = ElementIntegralVariablePostprocessor
+    type = SolutionNorm
     variable = u
-    execute_on = linear
+    execute_on = 'linear'
     use_displaced_mesh = true
   [../]
 
@@ -131,5 +132,6 @@
 [Outputs]
   file_base = ipm
   exodus = true
+  print_perf_log =  true
   hide = 'x_disp y_disp'
 []
