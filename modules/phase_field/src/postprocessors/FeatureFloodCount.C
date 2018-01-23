@@ -1703,7 +1703,7 @@ FeatureFloodCount::FeatureData::expandBBox(const FeatureData & rhs)
 std::ostream &
 operator<<(std::ostream & out, const FeatureFloodCount::FeatureData & feature)
 {
-  static const bool debug = true;
+  static const bool debug = false;
 
   out << "Grain ID: ";
   if (feature._id != FeatureFloodCount::invalid_id)
