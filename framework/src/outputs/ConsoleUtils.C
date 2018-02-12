@@ -55,9 +55,28 @@ outputMeshInformation(FEProblemBase & problem, bool verbose)
 {
   std::stringstream oss;
   oss << std::left;
+  dof_id_type min_local_nodes, max_local_nodes, min_local_elements, max_local_elements;
+  Real node_ratio, element_ratio;
+
 
   MooseMesh & moose_mesh = problem.mesh();
   MeshBase & mesh = moose_mesh.getMesh();
+
+  max_local_nodes = mesh.n_local_nodes();
+  mesh.comm().max(max_local_nodes);
+
+  min_local_nodes = mesh.n_local_nodes();
+  mesh.comm().min(min_local_nodes);
+
+  min_local_elements = mesh.n_local_nodes();
+  mesh.comm().min(min_local_elements);
+
+  max_local_elements = mesh.n_local_nodes();
+  mesh.comm().max(max_local_elements);
+
+  node_ratio = (Real)max_local_nodes/min_local_nodes;
+
+  element_ratio = (Real)max_local_elements/min_local_elements;
 
   if (verbose)
   {
@@ -73,9 +92,15 @@ outputMeshInformation(FEProblemBase & problem, bool verbose)
   oss << std::setw(console_field_width) << "  Nodes:" << '\n'
       << std::setw(console_field_width) << "    Total:" << mesh.n_nodes() << '\n'
       << std::setw(console_field_width) << "    Local:" << mesh.n_local_nodes() << '\n'
+      << std::setw(console_field_width) << "    Local Min:" << min_local_nodes << '\n'
+      << std::setw(console_field_width) << "    Local Max:" << max_local_nodes << '\n'
+      << std::setw(console_field_width) << "    Node Ratio:" << node_ratio << '\n'
       << std::setw(console_field_width) << "  Elems:" << '\n'
       << std::setw(console_field_width) << "    Total:" << mesh.n_active_elem() << '\n'
-      << std::setw(console_field_width) << "    Local:" << mesh.n_active_local_elem() << '\n';
+      << std::setw(console_field_width) << "    Local:" << mesh.n_active_local_elem() << '\n'
+      << std::setw(console_field_width) << "    Local Min:" << min_local_elements << '\n'
+      << std::setw(console_field_width) << "    Local Max:" << max_local_elements << '\n'
+      << std::setw(console_field_width) << "    Element Ratio:" << element_ratio << '\n';
 
   if (verbose)
   {
@@ -111,11 +136,25 @@ outputSystemInformationHelper(const System & system)
 {
   std::stringstream oss;
   oss << std::left;
+  dof_id_type min_local_dofs, max_local_dofs;
+  Real dof_ratio;
+  min_local_dofs = system.n_local_dofs();
+  max_local_dofs = system.n_local_dofs();
+
+  system.comm().min(min_local_dofs);
+
+  system.comm().max(max_local_dofs);
+
+  dof_ratio = (Real)max_local_dofs/min_local_dofs;
 
   if (system.n_dofs())
   {
     oss << std::setw(console_field_width) << "  Num DOFs: " << system.n_dofs() << '\n'
-        << std::setw(console_field_width) << "  Num Local DOFs: " << system.n_local_dofs() << '\n';
+        << std::setw(console_field_width) << "  Num Local DOFs: " << system.n_local_dofs() << '\n'
+        << std::setw(console_field_width) << "  Local DOFs Min: " << min_local_dofs << '\n'
+        << std::setw(console_field_width) << "  Local DOFs Max: " << max_local_dofs << '\n'
+        << std::setw(console_field_width) << "  DOF Ratio: " << dof_ratio << '\n';
+
 
     std::streampos begin_string_pos = oss.tellp();
     std::streampos curr_string_pos = begin_string_pos;

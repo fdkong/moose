@@ -6,7 +6,7 @@
 [Mesh]
   # Mesh block.  Meshes can be read in or automatically generated
   type = FileMesh
-  file = ./grain_growth_3D_in_coarse.4.cpr
+  file = grain_growth_3D_in_coarse.4.cpr
   num_ghosted_layers = 2
   parallel_type = DISTRIBUTED # Periodic BCs
 []
