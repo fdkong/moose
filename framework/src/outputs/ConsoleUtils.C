@@ -68,10 +68,10 @@ outputMeshInformation(FEProblemBase & problem, bool verbose)
   min_local_nodes = mesh.n_local_nodes();
   mesh.comm().min(min_local_nodes);
 
-  min_local_elements = mesh.n_local_nodes();
+  min_local_elements = mesh.n_active_local_elem();
   mesh.comm().min(min_local_elements);
 
-  max_local_elements = mesh.n_local_nodes();
+  max_local_elements = mesh.n_active_local_elem();
   mesh.comm().max(max_local_elements);
 
   node_ratio = (Real)max_local_nodes/min_local_nodes;
