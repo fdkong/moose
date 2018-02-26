@@ -885,11 +885,9 @@ public:
 
   virtual void computeResidual(const NumericVector<Number> & soln,
                                NumericVector<Number> & residual,
-                               std::vector<TagID> & tags);
+                               std::set<TagID> & tags);
 
-  virtual void computeResidual(const NumericVector<Number> & soln,
-                               std::vector<NumericVector<Number> *> & residuals,
-                               std::vector<TagID> & tags);
+  virtual void computeResidual(std::set<TagID> & tags);
 
   virtual void computeJacobian(NonlinearImplicitSystem & sys,
                                const NumericVector<Number> & soln,
@@ -901,7 +899,9 @@ public:
 
   virtual void computeJacobian(const NumericVector<Number> & soln,
                                SparseMatrix<Number> & jacobian,
-                               std::vector<TagID> & tags);
+                               std::set<TagID> & tags);
+
+  virtual void computeJacobian(std::set<TagID> & tags);
 
   /**
    * Computes several Jacobian blocks simultaneously, summing their contributions into smaller
@@ -1344,11 +1344,9 @@ protected:
   EquationSystems _eq;
   bool _initialized;
 
-  std::vector<TagID> _fe_vector_tags;
+  std::set<TagID> _fe_vector_tags;
 
-  std::vector<TagID> _fe_matrix_tags;
-
-  std::vector<NumericVector<Number> *> _fe_vector_residuals;
+  std::set<TagID> _fe_matrix_tags;
 
   /// Whether or not to actually solve the nonlinear system
   bool _solve;
