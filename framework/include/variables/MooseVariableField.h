@@ -390,6 +390,8 @@ public:
   const OutputType & nodalValuePreviousNLNeighbor();
   const OutputType & nodalValueDotNeighbor();
   const OutputType & nodalValueDuDotDuNeighbor();
+  const MooseArray<Real> & nodalVectorTagValue(TagID tag);
+  const MooseArray<Real> & nodalMatrixTagValue(TagID tag);
 
   virtual void computeNodalValues() override;
   virtual void computeNodalNeighborValues() override;

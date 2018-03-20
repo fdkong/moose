@@ -773,6 +773,44 @@ MooseVariableField<OutputType>::nodalValue()
 }
 
 template <typename OutputType>
+const MooseArray<Real> &
+MooseVariableField<OutputType>::nodalVectorTagValue(TagID tag)
+{
+  if (isNodal())
+  {
+    _need_vector_tag_dof_u = true;
+
+    if (_sys.hasVector(tag) && tag < _vector_tags_dof_u.size())
+      return _vector_tags_dof_u[tag];
+    else
+      mooseError("Tag is not associated with any vector or there is no any data for tag ", tag);
+  }
+  else
+    mooseError("Nodal values can be requested only on nodal variables, variable '",
+               name(),
+               "' is not nodal.");
+}
+
+template <typename OutputType>
+const MooseArray<Real> &
+MooseVariableField<OutputType>::nodalMatrixTagValue(TagID tag)
+{
+  if (isNodal())
+  {
+    _need_matrix_tag_dof_u = true;
+
+    if (_sys.hasMatrix(tag) && tag < _matrix_tags_dof_u.size())
+      return _matrix_tags_dof_u[tag];
+    else
+      mooseError("Tag is not associated with any matrix or there is no any data for tag ", tag);
+  }
+  else
+    mooseError("Nodal values can be requested only on nodal variables, variable '",
+               name(),
+               "' is not nodal.");
+}
+
+template <typename OutputType>
 const OutputType &
 MooseVariableField<OutputType>::nodalValueOld()
 {
@@ -843,6 +881,37 @@ MooseVariableField<OutputType>::computeNodalValues()
     _dof_values.resize(n);
     _sys.currentSolution()->get(_dof_indices, &_dof_values[0]);
     _nodal_value = _dof_values[0];
+
+    if (_need_vector_tag_dof_u)
+    {
+      TagID tag = 0;
+      for (auto & dof_u : _vector_tags_dof_u)
+      {
+        if (_sys.hasVector(tag))
+        {
+          dof_u.resize(n);
+          auto & vec = _sys.getVector(tag);
+          vec.get(_dof_indices, &dof_u[0]);
+        }
+        tag++;
+      }
+    }
+
+    if (_need_matrix_tag_dof_u)
+    {
+      TagID tag = 0;
+      for (auto & dof_u : _matrix_tags_dof_u)
+      {
+        if (_sys.hasMatrix(tag) && _sys.matrixTagActive(tag))
+        {
+          dof_u.resize(n);
+          auto & mat = _sys.getMatrix(tag);
+          for (unsigned i = 0; i < _dof_indices.size(); i++)
+            dof_u[i] = mat(_dof_indices[i], _dof_indices[i]);
+        }
+        tag++;
+      }
+    }
 
     if (_need_dof_values_previous_nl)
     {

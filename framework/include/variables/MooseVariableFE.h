@@ -372,6 +372,8 @@ protected:
   bool _need_solution_dofs_older_neighbor;
 
   bool _need_dof_values;
+  bool _need_vector_tag_dof_u;
+  bool _need_matrix_tag_dof_u;
   bool _need_dof_values_old;
   bool _need_dof_values_older;
   bool _need_dof_values_previous_nl;
@@ -410,6 +412,8 @@ protected:
   MooseArray<Real> _dof_values_old;
   MooseArray<Real> _dof_values_older;
   MooseArray<Real> _dof_values_previous_nl;
+  std::vector<MooseArray<Real>> _vector_tags_dof_u;
+  std::vector<MooseArray<Real>> _matrix_tags_dof_u;
 
   /// nodal values of u_dot
   MooseArray<Real> _dof_values_dot;

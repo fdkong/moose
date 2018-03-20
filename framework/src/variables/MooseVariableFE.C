@@ -57,6 +57,8 @@ MooseVariableFE::MooseVariableFE(unsigned int var_num,
     _need_solution_dofs_old_neighbor(false),
     _need_solution_dofs_older_neighbor(false),
     _need_dof_values(false),
+    _need_vector_tag_dof_u(false),
+    _need_matrix_tag_dof_u(false),
     _need_dof_values_old(false),
     _need_dof_values_older(false),
     _need_dof_values_previous_nl(false),
@@ -77,11 +79,27 @@ MooseVariableFE::MooseVariableFE(unsigned int var_num,
     _node(_assembly.node()),
     _node_neighbor(_assembly.nodeNeighbor())
 {
+  auto num_vector_tags = _sys.subproblem().numVectorTags();
+
+  _vector_tags_dof_u.resize(num_vector_tags);
+
+  auto num_matrix_tags = _sys.subproblem().numMatrixTags();
+
+  _matrix_tags_dof_u.resize(num_matrix_tags);
 }
 
 MooseVariableFE::~MooseVariableFE()
 {
   _dof_values.release();
+
+  for (auto & dof_u : _vector_tags_dof_u)
+    dof_u.release();
+  _vector_tags_dof_u.clear();
+
+  for (auto & dof_u : _matrix_tags_dof_u)
+    dof_u.release();
+  _matrix_tags_dof_u.clear();
+
   _dof_values_old.release();
   _dof_values_older.release();
   _dof_values_previous_nl.release();
@@ -177,6 +195,12 @@ MooseVariableFE::reinitAux()
     libmesh_assert(_dof_indices.size());
     _dof_values.resize(_dof_indices.size());
     _sys.currentSolution()->get(_dof_indices, &_dof_values[0]);
+
+    for (auto & dof_u : _vector_tags_dof_u)
+      dof_u.resize(_dof_indices.size());
+
+    for (auto & dof_u : _matrix_tags_dof_u)
+      dof_u.resize(_dof_indices.size());
 
     _has_dofs = true;
   }
