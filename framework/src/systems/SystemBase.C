@@ -515,7 +515,7 @@ SystemBase::addVector(TagID tag, const bool project, const ParallelType type)
 }
 
 void
-SystemBase::closeTaggedVectors(std::set<TagID> & tags)
+SystemBase::closeTaggedVectors(const std::set<TagID> & tags)
 {
   for (auto & tag : tags)
   {
@@ -525,7 +525,7 @@ SystemBase::closeTaggedVectors(std::set<TagID> & tags)
 }
 
 void
-SystemBase::zeroTaggedVectors(std::set<TagID> & tags)
+SystemBase::zeroTaggedVectors(const std::set<TagID> & tags)
 {
   for (auto & tag : tags)
   {
@@ -763,7 +763,7 @@ SystemBase::getMatrix(TagID tag)
 }
 
 void
-SystemBase::closeTaggedMatrices(std::set<TagID> & tags)
+SystemBase::closeTaggedMatrices(const std::set<TagID> & tags)
 {
   for (auto tag : tags)
     if (hasMatrix(tag))
