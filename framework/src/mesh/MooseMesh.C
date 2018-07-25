@@ -82,6 +82,9 @@ validParams<MooseMesh>()
                         "foo.e.N.0, foo.e.N.1, ... foo.e.N.N-1, "
                         "where N = # CPUs, with NemesisIO.");
 
+  params.addParam<bool>(
+      "reassign_node_pid", false, "If reassign node pid using the default algorithm");
+
   MooseEnum dims("1=1 2 3", "1");
   params.addParam<MooseEnum>("dim",
                              dims,
@@ -163,6 +166,7 @@ MooseMesh::MooseMesh(const InputParameters & parameters)
     _is_nemesis(getParam<bool>("nemesis")),
     _is_prepared(false),
     _needs_prepare_for_use(false),
+    _re_assign_node_processor_ids(getParam<bool>("reassign_node_pid")),
     _node_to_elem_map_built(false),
     _node_to_active_semilocal_elem_map_built(false),
     _patch_size(getParam<unsigned int>("patch_size")),
@@ -251,11 +255,11 @@ MooseMesh::MooseMesh(const InputParameters & parameters)
   if (_use_distributed_mesh)
   {
     _mesh = libmesh_make_unique<DistributedMesh>(_communicator, dim);
-    if (_partitioner_name != "default" && _partitioner_name != "parmetis")
+    /*if (_partitioner_name != "default" && _partitioner_name != "parmetis")
     {
       _partitioner_name = "parmetis";
       _partitioner_overridden = true;
-    }
+    }*/
   }
   else
     _mesh = libmesh_make_unique<ReplicatedMesh>(_communicator, dim);
@@ -278,6 +282,7 @@ MooseMesh::MooseMesh(const MooseMesh & other_mesh)
     _is_nemesis(false),
     _is_prepared(false),
     _needs_prepare_for_use(false),
+    _re_assign_node_processor_ids(other_mesh._re_assign_node_processor_ids),
     _node_to_elem_map_built(false),
     _patch_size(other_mesh._patch_size),
     _ghosting_patch_size(other_mesh._ghosting_patch_size),
@@ -402,6 +407,10 @@ MooseMesh::prepare(bool force)
     if (force || _needs_prepare_for_use)
       getMesh().prepare_for_use();
   }
+
+  if (_re_assign_node_processor_ids)
+    // Partitioner::set_node_processor_ids(getMesh());
+    getMesh().prepare_for_use();
 
   // Collect (local) subdomain IDs
   _mesh_subdomains.clear();
@@ -2018,7 +2027,7 @@ MooseMesh::init()
   if (_custom_partitioner_requested)
   {
     // Check of partitioner is supplied (not allowed if custom partitioner is used)
-    if (!parameters().isParamSetByAddParam("partitioner"))
+    if (parameters().isParamSetByAddParam("partitioner"))
       mooseError("If partitioner block is provided, partitioner keyword cannot be used!");
     // Set custom partitioner
     if (!_custom_partitioner.get())
