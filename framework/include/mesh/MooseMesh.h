@@ -886,6 +886,8 @@ protected:
   /// True if prepare_for_use should be called when Mesh is prepared
   bool _needs_prepare_for_use;
 
+  bool _re_assign_node_processor_ids;
+
   /// The elements that were just refined.
   std::unique_ptr<ConstElemPointerRange> _refined_elements;
 
