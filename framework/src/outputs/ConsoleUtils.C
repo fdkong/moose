@@ -80,12 +80,36 @@ outputMeshInformation(FEProblemBase & problem, bool verbose)
     // clang-format on
   }
 
+  dof_id_type local_nodes = mesh.n_local_nodes();
+  dof_id_type maximum_nodes = 0, minimum_nodes = 0;
+
+  minimum_nodes = local_nodes;
+  mesh.comm().min(minimum_nodes);
+
+  maximum_nodes = local_nodes;
+  mesh.comm().max(maximum_nodes);
+
+  dof_id_type local_elements = mesh.n_active_local_elem();
+  dof_id_type maximum_elements = 0, minimum_elements = 0;
+
+  minimum_elements = local_elements;
+  mesh.comm().min(minimum_nodes);
+
+  maximum_elements = local_elements;
+  mesh.comm().max(maximum_elements);
+
   oss << std::setw(console_field_width) << "  Nodes:" << '\n'
       << std::setw(console_field_width) << "    Total:" << mesh.n_nodes() << '\n'
       << std::setw(console_field_width) << "    Local:" << mesh.n_local_nodes() << '\n'
+      << std::setw(console_field_width) << "    Min:" << minimum_nodes << '\n'
+      << std::setw(console_field_width) << "    Avg:" << mesh.n_nodes()/mesh.n_processors() << '\n'
+      << std::setw(console_field_width) << "    Max:" << maximum_nodes << '\n'
       << std::setw(console_field_width) << "  Elems:" << '\n'
       << std::setw(console_field_width) << "    Total:" << mesh.n_active_elem() << '\n'
-      << std::setw(console_field_width) << "    Local:" << mesh.n_active_local_elem() << '\n';
+      << std::setw(console_field_width) << "    Local:" << mesh.n_active_local_elem() << '\n'
+      << std::setw(console_field_width) << "    Min:" << minimum_elements << '\n'
+      << std::setw(console_field_width) << "    Avg:" << mesh.n_active_elem()/mesh.n_processors() << '\n'
+      << std::setw(console_field_width) << "    Max:" << maximum_elements << '\n';
 
   if (verbose)
   {
@@ -124,8 +148,20 @@ outputSystemInformationHelper(System & system)
 
   if (system.n_dofs())
   {
+    dof_id_type local_dofs = system.n_local_dofs();
+    dof_id_type maximum_dofs = 0, minimum_dofs = 0;
+
+    minimum_dofs = local_dofs;
+    system.comm().min(minimum_dofs);
+
+    maximum_dofs = local_dofs;
+    system.comm().max(maximum_dofs);
+
     oss << std::setw(console_field_width) << "  Num DOFs: " << system.n_dofs() << '\n'
-        << std::setw(console_field_width) << "  Num Local DOFs: " << system.n_local_dofs() << '\n';
+        << std::setw(console_field_width) << "  Num Local DOFs: " << system.n_local_dofs() << '\n'
+        << std::setw(console_field_width) << "  Min DOFs: " << minimum_dofs << '\n'
+        << std::setw(console_field_width) << "  Avg DOFs: " << system.n_dofs()/system.n_processors() << '\n'
+        << std::setw(console_field_width) << "  Max DOFs: " << maximum_dofs << '\n';
 
     std::streampos begin_string_pos = oss.tellp();
     std::streampos curr_string_pos = begin_string_pos;
