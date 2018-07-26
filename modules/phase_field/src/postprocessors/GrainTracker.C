@@ -521,9 +521,9 @@ GrainTracker::trackGrains()
           auto & inactive_grain = (centroid_diff1 < centroid_diff2) ? other_old_grain : old_grain;
 
           inactive_grain._status = Status::INACTIVE;
-          _console << COLOR_GREEN << "Marking Grain " << inactive_grain._id
-                   << " as INACTIVE (variable index: " << inactive_grain._var_index << ")\n"
-                   << COLOR_DEFAULT << inactive_grain;
+          //_console << COLOR_GREEN << "Marking Grain " << inactive_grain._id
+          //         << " as INACTIVE (variable index: " << inactive_grain._var_index << ")\n"
+          //         << COLOR_DEFAULT << inactive_grain;
 
           /**
            * If the grain we just marked inactive was the one whose index was in the new grain

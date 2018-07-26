@@ -156,7 +156,7 @@ validParams<MooseApp>()
                                           "",
                                           "optional name of split mesh file(s) to write/read");
 
-  params.addCommandLineParam<unsigned short>("num_ghost_layers",
+  params.addCommandLineParam<unsigned int>("num_ghost_layers",
                                              "--num-ghost-layers [number]",
                                              1,
                                              "Number of layers to ghost when partitioning");

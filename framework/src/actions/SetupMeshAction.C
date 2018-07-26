@@ -229,5 +229,6 @@ SetupMeshAction::act()
 
     if (_displaced_mesh)
       setupMesh(_displaced_mesh.get());
+
   }
 }

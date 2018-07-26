@@ -18,7 +18,14 @@
   zmax = 300
   uniform_refine = 2 # Initial uniform refinement of the mesh
 
-  parallel_type = replicated # Periodic BCs
+  parallel_type = distributed # Periodic BCs
+[]
+
+[MeshModifiers]
+  [./node_scrambler]
+    type = NodeScrambler
+    seed = 2
+  [../]
 []
 
 [GlobalParams]
@@ -124,14 +131,14 @@
   [../]
 []
 
-[BCs]
+#[BCs]
   # Boundary Condition block
-  [./Periodic]
-    [./top_bottom]
-      auto_direction = 'x y' # Makes problem periodic in the x and y directions
-    [../]
-  [../]
-[]
+#  [./Periodic]
+#    [./top_bottom]
+#      auto_direction = 'x y' # Makes problem periodic in the x and y directions
+#    [../]
+#  [../]
+#[]
 
 [Materials]
   [./CuGrGr]

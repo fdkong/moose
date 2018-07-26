@@ -32,7 +32,7 @@ SplitMeshAction::SplitMeshAction(InputParameters params) : Action(params)
 void
 SplitMeshAction::act()
 {
-  auto num_ghost_layers = _app.parameters().get<unsigned short>("num_ghost_layers");
+  auto num_ghost_layers = _app.parameters().get<unsigned int>("num_ghost_layers");
   if (_default_coupling)
     _default_coupling->set_n_levels(num_ghost_layers);
   else
