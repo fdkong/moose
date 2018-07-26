@@ -102,13 +102,15 @@ outputMeshInformation(FEProblemBase & problem, bool verbose)
       << std::setw(console_field_width) << "    Total:" << mesh.n_nodes() << '\n'
       << std::setw(console_field_width) << "    Local:" << mesh.n_local_nodes() << '\n'
       << std::setw(console_field_width) << "    Min:" << minimum_nodes << '\n'
-      << std::setw(console_field_width) << "    Avg:" << mesh.n_nodes()/mesh.n_processors() << '\n'
+      << std::setw(console_field_width) << "    Avg:" << mesh.n_nodes() / mesh.n_processors()
+      << '\n'
       << std::setw(console_field_width) << "    Max:" << maximum_nodes << '\n'
       << std::setw(console_field_width) << "  Elems:" << '\n'
       << std::setw(console_field_width) << "    Total:" << mesh.n_active_elem() << '\n'
       << std::setw(console_field_width) << "    Local:" << mesh.n_active_local_elem() << '\n'
       << std::setw(console_field_width) << "    Min:" << minimum_elements << '\n'
-      << std::setw(console_field_width) << "    Avg:" << mesh.n_active_elem()/mesh.n_processors() << '\n'
+      << std::setw(console_field_width) << "    Avg:" << mesh.n_active_elem() / mesh.n_processors()
+      << '\n'
       << std::setw(console_field_width) << "    Max:" << maximum_elements << '\n';
 
   if (verbose)
@@ -160,7 +162,8 @@ outputSystemInformationHelper(System & system)
     oss << std::setw(console_field_width) << "  Num DOFs: " << system.n_dofs() << '\n'
         << std::setw(console_field_width) << "  Num Local DOFs: " << system.n_local_dofs() << '\n'
         << std::setw(console_field_width) << "  Min DOFs: " << minimum_dofs << '\n'
-        << std::setw(console_field_width) << "  Avg DOFs: " << system.n_dofs()/system.n_processors() << '\n'
+        << std::setw(console_field_width)
+        << "  Avg DOFs: " << system.n_dofs() / system.n_processors() << '\n'
         << std::setw(console_field_width) << "  Max DOFs: " << maximum_dofs << '\n';
 
     std::streampos begin_string_pos = oss.tellp();
