@@ -19,7 +19,7 @@
   #uniform_refine = 1 # Initial uniform refinement of the mesh
   [Partitioner]
     type = PetscExternalPartitioner
-    part_package = chaco
+    part_package = ptscotch
   []
 #  parallel_type = replicated # Periodic BCs
 []
