@@ -17,7 +17,7 @@
   #zmin = 0
   #zmax = 300
   #uniform_refine = 1 # Initial uniform refinement of the mesh
-  file = grain_growth_3D_in_s_0_3.e  
+  file = grain_growth_3D_in_s_0_3.e
   [Partitioner]
     type = PetscExternalPartitioner
     part_package = ptscotch
@@ -194,8 +194,14 @@
 [Outputs]
 #  exodus = true # Exodus file will be outputted
   csv = true
+  print_perf_log = true
+  perf_graph = true
   [./console]
     type = Console
     max_rows = 20 # Will print the 20 most recent postprocessor values to the screen
   [../]
+[]
+
+[Debug]
+ show_actions = true
 []
