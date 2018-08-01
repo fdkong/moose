@@ -5,18 +5,19 @@
 
 [Mesh]
   # Mesh block.  Meshes can be read in or automatically generated
-  type = GeneratedMesh
-  dim = 3 # Problem dimension
-  nx = 10 # Number of elements in the x-direction
-  ny = 10 # Number of elements in the y-direction
-  nz = 3
-  xmin = 0    # minimum x-coordinate of the mesh
-  xmax = 1000 # maximum x-coordinate of the mesh
-  ymin = 0    # minimum y-coordinate of the mesh
-  ymax = 1000 # maximum y-coordinate of the mesh
-  zmin = 0
-  zmax = 300
+  #type = GeneratedMesh
+  #dim = 3 # Problem dimension
+  #nx = 10 # Number of elements in the x-direction
+  #ny = 10 # Number of elements in the y-direction
+  #nz = 3
+  #xmin = 0    # minimum x-coordinate of the mesh
+  #xmax = 1000 # maximum x-coordinate of the mesh
+  #ymin = 0    # minimum y-coordinate of the mesh
+  #ymax = 1000 # maximum y-coordinate of the mesh
+  #zmin = 0
+  #zmax = 300
   #uniform_refine = 1 # Initial uniform refinement of the mesh
+  file = grain_growth_3D_in_s_0_3.e  
   [Partitioner]
     type = PetscExternalPartitioner
     part_package = ptscotch
@@ -173,12 +174,12 @@
   nl_rel_tol = 1e-10 # Absolute tolerance for nonlienar solves
 
   start_time = 0.0
-  end_time = 4000
+  end_time = 250
 
   [./TimeStepper]
-    type = IterationAdaptiveDT
+    type = ConstantDT
     dt = 25 # Initial time step.  In this simulation it changes.
-    optimal_iterations = 6 # Time step will adapt to maintain this number of nonlinear iterations
+#    optimal_iterations = 6 # Time step will adapt to maintain this number of nonlinear iterations
   [../]
 
 #  [./Adaptivity]
@@ -191,7 +192,7 @@
 []
 
 [Outputs]
-  exodus = true # Exodus file will be outputted
+#  exodus = true # Exodus file will be outputted
   csv = true
   [./console]
     type = Console
