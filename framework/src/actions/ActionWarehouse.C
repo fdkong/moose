@@ -335,7 +335,9 @@ ActionWarehouse::executeAllActions()
 
   for (const auto & task : _ordered_names)
   {
+    _console << "\n[DBG][ACT] Task : " <<task<<" begin"<< std::endl;
     executeActionsWithAction(task);
+    _console << "\n[DBG][ACT] Task : " <<task<<" end"<< std::endl;
     if (_final_task != "" && task == _final_task)
       break;
   }
