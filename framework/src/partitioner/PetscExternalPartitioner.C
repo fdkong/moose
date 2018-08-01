@@ -150,7 +150,9 @@ PetscExternalPartitioner::_do_partition(MeshBase & mesh, const unsigned int n_pa
 #endif
   MatPartitioningSetType(part, _part_package.c_str());
   MatPartitioningSetFromOptions(part);
+  PetscPrintf(PETSC_COMM_WORLD, "Before Do partition in PETSc \n");
   MatPartitioningApply(part, &is);
+  PetscPrintf(PETSC_COMM_WORLD, "End Do partition in PETSc \n");
 
   ISGetIndices(is, &parts);
 
