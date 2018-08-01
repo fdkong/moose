@@ -182,18 +182,17 @@ OutputWarehouse::mooseConsole()
     // Reset
     _console_buffer.clear();
     _console_buffer.str("");
-
-    if (!_buffer_action_console_outputs)
-    {
-      // this will cause messages to console before its construction immediately flushed and
-      // cleared.
-      std::string message = _console_buffer.str();
-      if (_app.multiAppLevel() > 0)
-        MooseUtils::indentMessage(_app.name(), message);
-      Moose::out << message << std::flush;
-      _console_buffer.clear();
-      _console_buffer.str("");
-    }
+  }
+  else if (true)
+  {
+    // this will cause messages to console before its construction immediately flushed and
+    // cleared.
+    std::string message = _console_buffer.str();
+    if (_app.multiAppLevel() > 0)
+      MooseUtils::indentMessage(_app.name(), message);
+    Moose::out << message << std::flush;
+    _console_buffer.clear();
+    _console_buffer.str("");
   }
 }
 

@@ -888,6 +888,8 @@ protected:
 
   bool _re_assign_node_processor_ids;
 
+  bool _force_prepare_for_use;
+
   /// The elements that were just refined.
   std::unique_ptr<ConstElemPointerRange> _refined_elements;
 
