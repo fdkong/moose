@@ -49,6 +49,7 @@
     threshold = 0.2
     connecting_threshold = 0.08
     compute_halo_maps = true # Only necessary for displaying HALOS
+    tracking_step = 100
   [../]
 []
 
@@ -194,12 +195,16 @@
 [Outputs]
 #  exodus = true # Exodus file will be outputted
   csv = true
-  print_perf_log = true
-  perf_graph = true
   [./console]
     type = Console
     max_rows = 20 # Will print the 20 most recent postprocessor values to the screen
   [../]
+  [pgraph]
+    type = PerfGraphOutput
+    level = 10
+    heaviest_branch = true
+    heaviest_sections = 10
+  []
 []
 
 [Debug]
