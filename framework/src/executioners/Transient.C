@@ -293,14 +293,20 @@ Transient::init()
     _time_stepper = _app.getFactory().create<TimeStepper>("ConstantDT", "TimeStepper", pars);
   }
 
+  Moose::out<<" before _problem.initialSetup() "<<std::endl;
   _problem.initialSetup();
+  Moose::out<<" after _problem.initialSetup() "<<std::endl;
 
+  Moose::out<<" before _time_stepper->init() "<<std::endl;
   _time_stepper->init();
+  Moose::out<<" after _time_stepper->init() "<<std::endl;
 
   if (_app.isRestarting())
     _time_old = _time;
 
+  Moose::out<<" before _problem.outputStep(EXEC_INITIAL) "<<std::endl;
   _problem.outputStep(EXEC_INITIAL);
+  Moose::out<<" after _problem.outputStep(EXEC_INITIAL) "<<std::endl;
 
   if (_app.isRecovering()) // Recover case
   {
@@ -325,7 +331,9 @@ Transient::init()
                  "2. If you are developing a new time stepper, make sure that initial time step "
                  "size in your code is computed correctly.");
 
+    Moose::out<<" before _nl.getTimeIntegrator()->init() "<<std::endl;
     _nl.getTimeIntegrator()->init();
+    Moose::out<<" after _nl.getTimeIntegrator()->init() "<<std::endl;
 
     ++_t_step;
   }
@@ -346,8 +354,9 @@ Transient::postStep()
 void
 Transient::execute()
 {
-
+  Moose::out<<" before preExecute(); "<<std::endl;
   preExecute();
+  Moose::out<<" after preExecute(); "<<std::endl;
 
   // NOTE: if you remove this line, you will see a subset of tests failing. Those tests might have a
   // wrong answer and might need to be regolded.
@@ -356,8 +365,11 @@ Transient::execute()
   // is to maintain backward compatibility and so that MOOSE is giving the same answer.  However, we
   // might remove this call and regold the test
   // in the future eventually.
+  Moose::out<<" before   _problem.advanceState() "<<std::endl;
   if (!_app.isRecovering())
     _problem.advanceState();
+
+  Moose::out<<" after   _problem.advanceState();; "<<std::endl;  
 
   // Start time loop...
   while (true)

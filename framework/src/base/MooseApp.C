@@ -820,9 +820,18 @@ MooseApp::executeExecutioner()
     Moose::PetscSupport::petscSetupOutput(_command_line.get());
 #endif
 
+    Moose::out<<" before  _executioner->init() "<<std::endl;
+
     _executioner->init();
+    Moose::out<<" after  _executioner->init() "<<std::endl;
+
+    Moose::out<<" before  errorCheck() "<<std::endl;
     errorCheck();
+    Moose::out<<" after  errorCheck() "<<std::endl;
+
+    Moose::out<<" before _executioner->execute() "<<std::endl;
     _executioner->execute();
+    Moose::out<<" after _executioner->execute() "<<std::endl;
   }
   else
     mooseError("No executioner was specified (go fix your input file)");
@@ -929,8 +938,12 @@ MooseApp::run()
   try
   {
     TIME_SECTION(_setup_timer);
+    Moose::out<<" before setupOptions "<<std::endl;
     setupOptions();
+    Moose::out<<" after setupOptions "<<std::endl;
+    Moose::out<<" before  runInputFile "<<std::endl;
     runInputFile();
+    Moose::out<<" after  runInputFile "<<std::endl;
   }
   catch (std::exception & err)
   {
@@ -940,7 +953,9 @@ MooseApp::run()
   if (!_check_input)
   {
     TIME_SECTION(_execute_timer);
+    Moose::out<<" Before executeExecutioner "<<std::endl;
     executeExecutioner();
+    Moose::out<<" After executeExecutioner "<<std::endl;
   }
   else
   {

@@ -486,13 +486,21 @@ FEProblemBase::initialSetup()
   // This can be used to throw errors in methods that _must_ be called at construction time.
   _started_initial_setup = true;
 
+  Moose::out<<"before addExtraVectors"<<std::endl;
+
   addExtraVectors();
 
+  Moose::out<<"after addExtraVectors"<<std::endl;
+
+  Moose::out<<"before  _app.getOutputWarehouse().initialSetup()"<<std::endl;
   // Perform output related setups
   _app.getOutputWarehouse().initialSetup();
+  Moose::out<<"after  _app.getOutputWarehouse().initialSetup()"<<std::endl;
 
+  Moose::out<<"before  _app.getOutputWarehouse().mooseConsole() "<<std::endl;
   // Flush all output to _console that occur during construction and initialization of objects
   _app.getOutputWarehouse().mooseConsole();
+  Moose::out<<"after  _app.getOutputWarehouse().mooseConsole() "<<std::endl;
 
   if (_app.isRecovering() && (_app.isUltimateMaster() || _force_restart))
   {
@@ -543,10 +551,17 @@ FEProblemBase::initialSetup()
   }
 
   // Do this just in case things have been done to the mesh
+  Moose::out<<"before  ghostGhostedBoundaries(); "<<std::endl;
   ghostGhostedBoundaries();
+  Moose::out<<"after  ghostGhostedBoundaries(); "<<std::endl;
+  Moose::out<<"before   _mesh.meshChanged() "<<std::endl;
   _mesh.meshChanged();
+  Moose::out<<"after   _mesh.meshChanged() "<<std::endl;
+  Moose::out<<"before    _displaced_mesh->meshChanged() "<<std::endl;
   if (_displaced_problem)
     _displaced_mesh->meshChanged();
+
+  Moose::out<<"after    _displaced_mesh->meshChanged() "<<std::endl;
 
   unsigned int n_threads = libMesh::n_threads();
 
@@ -555,26 +570,39 @@ FEProblemBase::initialSetup()
   std::set<std::string> depend_objects_aux = _aux->getDependObjects();
 
   _general_user_objects.updateDependObjects(depend_objects_ic, depend_objects_aux);
+  Moose::out<<"before   _general_user_objects.initialSetup(); "<<std::endl;
   _general_user_objects.initialSetup();
+  Moose::out<<"after    _general_user_objects.initialSetup(); "<<std::endl;
+  Moose::out<<"before  _general_user_objects.sort() "<<std::endl;
   _general_user_objects.sort();
+  Moose::out<<"after  _general_user_objects.sort() "<<std::endl;
 
   for (THREAD_ID tid = 0; tid < n_threads; tid++)
   {
+    Moose::out<<"before  _nodal_user_objects._nodal_user_objects.initialSetup(tid) "<<std::endl;
     _nodal_user_objects.updateDependObjects(depend_objects_ic, depend_objects_aux, tid);
     _nodal_user_objects.initialSetup(tid);
+    Moose::out<<"after  _nodal_user_objects._nodal_user_objects.initialSetup(tid) "<<std::endl;
 
+    Moose::out<<"before _elemental_user_objects.initialSetup(tid) "<<std::endl;
     _elemental_user_objects.updateDependObjects(depend_objects_ic, depend_objects_aux, tid);
     _elemental_user_objects.initialSetup(tid);
+    Moose::out<<"after  _elemental_user_objects.initialSetup(tid) "<<std::endl;
 
+    Moose::out<<"before _side_user_objects.initialSetup(tid) "<<std::endl;
     _side_user_objects.updateDependObjects(depend_objects_ic, depend_objects_aux, tid);
     _side_user_objects.initialSetup(tid);
+    Moose::out<<"after __side_user_objects.initialSetup(tid) "<<std::endl;
 
+    Moose::out<<"before _internal_side_user_objects.initialSetup(tid) "<<std::endl;
     _internal_side_user_objects.updateDependObjects(depend_objects_ic, depend_objects_aux, tid);
     _internal_side_user_objects.initialSetup(tid);
 
     _threaded_general_user_objects.updateDependObjects(depend_objects_ic, depend_objects_aux, tid);
     _threaded_general_user_objects.initialSetup(tid);
     _threaded_general_user_objects.sort(tid);
+
+    Moose::out<<"after _internal_side_user_objects.initialSetup(tid) "<<std::endl;
   }
 
   // check if jacobian calculation is done in userobject
@@ -671,11 +699,15 @@ FEProblemBase::initialSetup()
       _console << "XFEM updated mesh on initializaton" << std::endl;
   }
 
+  Moose::out<<"before _nl->initialSetup() "<<std::endl;
   // Call initialSetup on the nonlinear system
   _nl->initialSetup();
+  Moose::out<<"after _nl->initialSetup() "<<std::endl;
 
+  Moose::out<<"before _aux->initialSetup() "<<std::endl;
   // Auxilary variable initialSetup calls
   _aux->initialSetup();
+  Moose::out<<"after _aux->initialSetup() "<<std::endl;
 
   _nl->setSolution(*(_nl->system().current_local_solution.get()));
 
@@ -3051,8 +3083,11 @@ FEProblemBase::computeUserObjects(const ExecFlagType & type, const Moose::AuxGro
     {
       Moose::out << " Before Execute User object " << obj->name() << std::endl;
       obj->initialize();
+      Moose::out << " Before obj->execute() " << obj->name() << std::endl;
       obj->execute();
+      Moose::out << " Before obj->finalize() " << obj->name() << std::endl;
       obj->finalize();
+      Moose::out << " After obj->finalize() " << obj->name() << std::endl;
 
       std::shared_ptr<Postprocessor> pp = std::dynamic_pointer_cast<Postprocessor>(obj);
       if (pp)
