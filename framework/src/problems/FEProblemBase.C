@@ -2971,12 +2971,14 @@ FEProblemBase::computeUserObjects(const ExecFlagType & type, const Moose::AuxGro
   initializeUserObjects<SideUserObject>(side);
   initializeUserObjects<InternalSideUserObject>(internal_side);
 
+  Moose::out << " Before Execute Elemental/Side/InternalSideUserObjects" << std::endl;
   // Execute Elemental/Side/InternalSideUserObjects
   if (elemental.hasActiveObjects() || side.hasActiveObjects() || internal_side.hasActiveObjects())
   {
     ComputeUserObjectsThread cppt(*this, getNonlinearSystemBase(), elemental, side, internal_side);
     Threads::parallel_reduce(*_mesh.getActiveLocalElementRange(), cppt);
   }
+  Moose::out << " After Execute Elemental/Side/InternalSideUserObjects" << std::endl;
 
   // Finalize, threadJoin, and update PP values of Elemental/Side/InternalSideUserObjects
   finalizeUserObjects<SideUserObject>(side);
@@ -2986,12 +2988,14 @@ FEProblemBase::computeUserObjects(const ExecFlagType & type, const Moose::AuxGro
   // Initialize Nodal
   initializeUserObjects<NodalUserObject>(nodal);
 
+  Moose::out << " Before Execute NodalUserObjects" << std::endl;
   // Execute NodalUserObjects
   if (nodal.hasActiveObjects())
   {
     ComputeNodalUserObjectsThread cnppt(*this, nodal);
     Threads::parallel_reduce(*_mesh.getLocalNodeRange(), cnppt);
   }
+  Moose::out << " After  Execute NodalUserObjects" << std::endl;
 
   // Finalize, threadJoin, and update PP values of Nodal
   finalizeUserObjects<NodalUserObject>(nodal);
@@ -3042,8 +3046,10 @@ FEProblemBase::computeUserObjects(const ExecFlagType & type, const Moose::AuxGro
   if (general.hasActiveObjects())
   {
     const auto & objects = general.getActiveObjects();
+
     for (const auto & obj : objects)
     {
+      Moose::out << " Before Execute User object " << obj->name() << std::endl;
       obj->initialize();
       obj->execute();
       obj->finalize();
@@ -3056,6 +3062,8 @@ FEProblemBase::computeUserObjects(const ExecFlagType & type, const Moose::AuxGro
 
       if (vpp)
         _vpps_data.broadcastScatterVectors(vpp->PPName());
+
+      Moose::out << " After Execute User object " << obj->name() << std::endl;
     }
   }
 }
