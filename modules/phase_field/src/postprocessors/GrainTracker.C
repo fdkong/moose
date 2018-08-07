@@ -172,6 +172,18 @@ GrainTracker::doesFeatureIntersectBoundary(unsigned int feature_id) const
 }
 
 void
+GrainTracker::initialSetup()
+{
+  Moose::out << "GrainTracker::initialSetup " << std::endl;
+  if (_t_step < _tracking_step)
+    return;
+
+  Moose::out << "GrainTracker::initialSetup 2" << std::endl;
+
+  FeatureFloodCount::initialSetup();
+}
+
+void
 GrainTracker::initialize()
 {
   // Don't track grains if the current simulation step is before the specified tracking step
