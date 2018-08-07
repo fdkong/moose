@@ -68,6 +68,7 @@ public:
   virtual Point getGrainCentroid(unsigned int grain_id) const override;
   virtual bool doesFeatureIntersectBoundary(unsigned int feature_id) const override;
   virtual std::vector<unsigned int> getNewGrainIDs() const override;
+  virtual void initialSetup() override;
 
 protected:
   virtual void updateFieldInfo() override;

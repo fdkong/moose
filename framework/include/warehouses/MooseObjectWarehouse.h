@@ -144,10 +144,10 @@ MooseObjectWarehouse<T>::initialSetup(THREAD_ID tid /* = 0*/) const
   checkThreadID(tid);
   for (const auto & object : _active_objects[tid])
   {
-    Moose::out<<"before object->initialSetup() " <<object->name()<<std::endl;
+    Moose::out << "before object->initialSetup() " << object->name() << std::endl;
     object->initialSetup();
 
-    Moose::out<<"after object->initialSetup() " <<object->name()<<std::endl;
+    Moose::out << "after object->initialSetup() " << object->name() << std::endl;
   }
 }
 
