@@ -37,6 +37,9 @@ MooseInit::MooseInit(int argc, char * argv[], MPI_Comm COMM_WORLD_IN)
 
   ParallelUniqueId::initialize();
 
+  for (int i=0; i<argc; i++)
+    Moose::out<<argv[i]<<std::endl;
+
   // Make sure that any calls to the global random number generator are consistent among processes
   MooseRandom::seed(0);
 }
