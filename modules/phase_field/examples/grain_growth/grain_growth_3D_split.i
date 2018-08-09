@@ -82,6 +82,15 @@
     order = CONSTANT
     family = MONOMIAL
   [../]
+
+  [pid]
+    family = MONOMIAL
+    order = CONSTANT
+  []
+  [npid]
+    family = Lagrange
+    order = first
+  []
 []
 
 [Kernels]
@@ -127,6 +136,17 @@
     field_display = HALOS
     execute_on = 'initial timestep_end'
   [../]
+
+  [pid_aux]
+    type = ProcessorIDAux
+    variable = pid
+    execute_on = 'INITIAL'
+  []
+  [npid_aux]
+    type = ProcessorIDAux
+    variable = npid
+    execute_on = 'INITIAL'
+  []
 []
 
 #[BCs]
@@ -195,6 +215,8 @@
 [Outputs]
 #  exodus = true # Exodus file will be outputted
   csv = true
+#  nemesis = true
+#  file_base = grain_growth_solution/out
   [./console]
     type = Console
     max_rows = 20 # Will print the 20 most recent postprocessor values to the screen
