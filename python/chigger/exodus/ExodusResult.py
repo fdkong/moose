@@ -14,6 +14,7 @@ from MultiAppExodusReader import MultiAppExodusReader
 import mooseutils
 from .. import base
 from .. import utils
+import operator
 
 class ExodusResult(base.ChiggerResult):
     """
@@ -28,6 +29,8 @@ class ExodusResult(base.ChiggerResult):
                                  "'exploded' away from the center of the entire object.",
                 vtype=float)
         opt.add('local_range', False, "Use local range when computing the default data range.")
+
+        opt.add('group', 1, "How to group sources.", vtype=int)
 
         return opt
 
@@ -74,11 +77,34 @@ class ExodusResult(base.ChiggerResult):
         # Explode
         if self.isOptionValid('explode'):
             factor = self.getOption('explode')
+            group = self.getOption('group')
             m = self.getCenter()
+            print group
+
+            c = (0, 0, 0)
+            srctemp = []
+            i = 1
             for src in self._sources:
-                c = src.getVTKActor().GetCenter()
-                d = (c[0]-m[0], c[1]-m[1], c[2]-m[2])
-                src.getVTKActor().AddPosition(d[0]*factor, d[1]*factor, d[2]*factor)
+                if i <= group :
+                    c = tuple(map(operator.add, c, src.getVTKActor().GetCenter()))
+                else:
+                    c = src.getVTKActor().GetCenter()
+                    i = 1
+
+                srctemp.append(src)
+                print i, group
+                if i == group:
+                   c = [cc/group for cc in c]
+                   d = (c[0]-m[0], c[1]-m[1], c[2]-m[2])
+                   for src1 in srctemp:
+                     src1.getVTKActor().AddPosition(d[0]*factor, d[1]*factor, d[2]*factor)
+
+                   srctemp = []
+                   c = (0, 0, 0)
+                   i = 1
+                else:
+                   i = i+1
+
 
     def getRange(self, **kwargs):
         """
