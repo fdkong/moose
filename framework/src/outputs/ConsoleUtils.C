@@ -93,7 +93,7 @@ outputMeshInformation(FEProblemBase & problem, bool verbose)
   dof_id_type maximum_elements = 0, minimum_elements = 0;
 
   minimum_elements = local_elements;
-  mesh.comm().min(minimum_nodes);
+  mesh.comm().min(minimum_elements);
 
   maximum_elements = local_elements;
   mesh.comm().max(maximum_elements);
