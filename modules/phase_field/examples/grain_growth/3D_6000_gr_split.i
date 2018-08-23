@@ -160,17 +160,17 @@
   [../]
 []
 
-#[Preconditioning]
-#  [./SMP]
-#    type = SMP
-#    full = true
-#  [../]
-#[]
+[Preconditioning]
+  [./SMP]
+    type = SMP
+    full = true
+  [../]
+[]
 
 [Executioner]
   type = Transient
   scheme = bdf2
-  solve_type = PJFNK #Preconditioned JFNK (default)
+  solve_type = NEWTON #Preconditioned JFNK (default)
   petsc_options_iname = '-pc_type'
   petsc_options_value = 'asm'
   l_tol = 1.0e-4
