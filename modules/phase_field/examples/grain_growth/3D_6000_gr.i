@@ -151,6 +151,7 @@
     type = GrainTracker
     threshold = 0.1
     compute_halo_maps = true
+    polycrystal_ic_uo = voronoi
   [../]
 []
 

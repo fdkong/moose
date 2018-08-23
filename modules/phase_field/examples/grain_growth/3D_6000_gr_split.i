@@ -156,6 +156,7 @@
     threshold = 0.1
     compute_halo_maps = true
     verbosity_level = 0
+    polycrystal_ic_uo = voronoi
   [../]
 []
 
