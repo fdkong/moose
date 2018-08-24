@@ -200,7 +200,8 @@
 
 [Outputs]
   nemesis = true
-  checkpoint = true
+  file_base = 3D_6000_gr_split/out
+#  checkpoint = true
   csv = true
   [./console]
     type = Console
