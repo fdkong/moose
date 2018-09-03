@@ -1,9 +1,9 @@
 [Mesh]
   type = GeneratedMesh
   dim = 3
-  nx = 180
-  ny = 180
-  nz = 180
+  nx = 200
+  ny = 200
+  nz = 200
   xmin = 0
   xmax = 180
   ymin = 0
@@ -36,10 +36,10 @@
     rand_seed = 8675 # 301
     coloring_algorithm = jp
   [../]
-  [./term]
-    type = Terminator
-    expression = 'grain_tracker < 218'
-  [../]
+  #[./term]
+  #  type = Terminator
+  #  expression = 'grain_tracker < 1'
+  #[../]
 []
 
 [ICs]

@@ -320,6 +320,8 @@ GrainTracker::finalize()
   if (_verbosity_level > 0)
     _console << "Finished inside of GrainTracker" << std::endl;
   Moose::perf_log.pop("finalize()", "GrainTracker");
+  
+  Moose::out<<"Number of Active Grains "<<_feature_count<<std::endl;
 }
 
 void
