@@ -1,9 +1,9 @@
 [Mesh]
   type = GeneratedMesh
   dim = 3
-  nx = 200
-  ny = 200
-  nz = 200
+  nx = 260
+  ny = 260
+  nz = 260
   xmin = 0
   xmax = 180
   ymin = 0
@@ -18,7 +18,7 @@
 []
 
 [GlobalParams]
-  op_num = 28
+  op_num = 29
   var_name_base = gr
 []
 
@@ -178,7 +178,7 @@
   nl_max_its = 20
   nl_rel_tol = 1.0e-8
   start_time = 0.0
-  num_steps = 500
+  num_steps = 10
   dt = 0.0002
 
   [./TimeStepper]

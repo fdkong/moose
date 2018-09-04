@@ -79,6 +79,11 @@ GrainTracker::GrainTracker(const InputParameters & parameters)
     _verbosity_level(getParam<short>("verbosity_level")),
     _first_time(true),
     _error_on_grain_creation(getParam<bool>("error_on_grain_creation")),
+    _initial_setup(registerTimedSection("GrainTrackerInitialSetup", 2)),
+    _gt_execute(registerTimedSection("GrainTrackerExecute", 2)),
+    _gt_finalize(registerTimedSection("GrainTrackerFinalize", 2)),
+    _remap_grains(registerTimedSection("GrainTrackerRemapGrains", 3)),
+    _track_grains(registerTimedSection("GrainTrackerTrackGrains", 3)),
     _reserve_grain_first_index(0),
     _old_max_grain_id(0),
     _max_curr_grain_id(0),
@@ -192,6 +197,8 @@ GrainTracker::initialize()
    */
   if (!_first_time)
     _feature_sets_old.swap(_feature_sets);
+  
+  TIME_SECTION(_initial_setup);  
 
   FeatureFloodCount::initialize();
 }
@@ -206,9 +213,10 @@ GrainTracker::execute()
   if (_poly_ic_uo && _first_time)
     return;
 
-  Moose::perf_log.push("execute()", "GrainTracker");
+  //Moose::perf_log.push("execute()", "GrainTracker");
+  TIME_SECTION(_gt_execute);
   FeatureFloodCount::execute();
-  Moose::perf_log.pop("execute()", "GrainTracker");
+  //Moose::perf_log.pop("execute()", "GrainTracker");
 }
 
 Real
@@ -267,8 +275,9 @@ GrainTracker::finalize()
   if (_t_step < _tracking_step)
     return;
 
-  Moose::perf_log.push("finalize()", "GrainTracker");
+  //Moose::perf_log.push("finalize()", "GrainTracker");
 
+  TIME_SECTION(_gt_finalize);
   // Expand the depth of the halos around all grains
   auto num_halo_layers = _halo_level >= 1
                              ? _halo_level - 1
@@ -287,12 +296,12 @@ GrainTracker::finalize()
   /**
    * Assign or Track Grains
    */
-  Moose::perf_log.push("trackGrains()", "GrainTracker");
+  //Moose::perf_log.push("trackGrains()", "GrainTracker");
   if (_first_time)
     assignGrains();
   else
     trackGrains();
-  Moose::perf_log.pop("trackGrains()", "GrainTracker");
+  //Moose::perf_log.pop("trackGrains()", "GrainTracker");
   if (_verbosity_level > 1)
     _console << "Finished inside of trackGrains" << std::endl;
 
@@ -304,10 +313,10 @@ GrainTracker::finalize()
   /**
    * Remap Grains
    */
-  Moose::perf_log.push("remapGrains()", "GrainTracker");
+  //Moose::perf_log.push("remapGrains()", "GrainTracker");
   if (_remap)
     remapGrains();
-  Moose::perf_log.pop("remapGrains()", "GrainTracker");
+  //Moose::perf_log.pop("remapGrains()", "GrainTracker");
 
   updateFieldInfo();
   if (_verbosity_level > 1)
@@ -319,9 +328,9 @@ GrainTracker::finalize()
   // TODO: Release non essential memory
   if (_verbosity_level > 0)
     _console << "Finished inside of GrainTracker" << std::endl;
-  Moose::perf_log.pop("finalize()", "GrainTracker");
+  //Moose::perf_log.pop("finalize()", "GrainTracker");
   
-  Moose::out<<"Number of Active Grains "<<_feature_count<<std::endl;
+  Moose::out<<"  Number of Active Grains "<<_feature_count<<std::endl;
 }
 
 void
@@ -389,6 +398,7 @@ GrainTracker::assignGrains()
 {
   mooseAssert(_first_time, "assignGrains may only be called on the first tracking step");
 
+  TIME_SECTION(_track_grains);
   /**
    * We need to assign grainIDs to get the simulation going. We'll use the default sorting that
    * doesn't require valid grainIDs (relies on _min_entity_id and _var_index). These will be the
@@ -429,6 +439,8 @@ void
 GrainTracker::trackGrains()
 {
   mooseAssert(!_first_time, "Track grains may only be called when _tracking_step > _t_step");
+
+  TIME_SECTION(_track_grains);
 
   // Used to track indices for which to trigger the new grain callback on (used on all ranks)
   auto _old_max_grain_id = _max_curr_grain_id;
@@ -770,6 +782,8 @@ GrainTracker::remapGrains()
   // Don't remap grains if the current simulation step is before the specified tracking step
   if (_t_step < _tracking_step)
     return;
+
+  TIME_SECTION(_remap_grains);
 
   if (_verbosity_level > 1)
     _console << "Running remap Grains\n" << std::endl;

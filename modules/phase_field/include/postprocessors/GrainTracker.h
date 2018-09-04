@@ -70,6 +70,8 @@ public:
   virtual std::vector<unsigned int> getNewGrainIDs() const override;
   virtual void initialSetup() override;
 
+  
+
 protected:
   virtual void updateFieldInfo() override;
   virtual Real getThreshold(std::size_t current_index) const override;
@@ -230,6 +232,18 @@ protected:
    * the initial callback to newGrainCreated() nor does it get triggered for splitting grains.
    */
   const bool _error_on_grain_creation;
+ 
+public:
+
+  PerfID _initial_setup;
+
+  PerfID _gt_execute;
+   
+  PerfID _gt_finalize;
+
+  PerfID _remap_grains;
+
+  PerfID _track_grains;
 
 private:
   /// Holds the first unique grain index when using _reserve_op (all the remaining indices are sequential)
