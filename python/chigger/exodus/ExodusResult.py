@@ -30,7 +30,7 @@ class ExodusResult(base.ChiggerResult):
                 vtype=float)
         opt.add('local_range', False, "Use local range when computing the default data range.")
 
-        opt.add('group', 1, "How to group sources.", vtype=int)
+        opt.add('group', [], "How to group sources.", vtype=list)
 
         return opt
 
@@ -79,22 +79,27 @@ class ExodusResult(base.ChiggerResult):
             factor = self.getOption('explode')
             group = self.getOption('group')
             m = self.getCenter()
+
+            if not group:
+              group = [1]*len(self._sources)
+
             print group
 
             c = (0, 0, 0)
             srctemp = []
             i = 1
+            j = 0
             for src in self._sources:
-                if i <= group :
+                if i <= group[j] :
                     c = tuple(map(operator.add, c, src.getVTKActor().GetCenter()))
                 else:
                     c = src.getVTKActor().GetCenter()
                     i = 1
 
                 srctemp.append(src)
-                print i, group
-                if i == group:
-                   c = [cc/group for cc in c]
+                print i, group[j]
+                if i == group[j]:
+                   c = [cc/group[j] for cc in c]
                    d = (c[0]-m[0], c[1]-m[1], c[2]-m[2])
                    for src1 in srctemp:
                      src1.getVTKActor().AddPosition(d[0]*factor, d[1]*factor, d[2]*factor)
@@ -102,6 +107,7 @@ class ExodusResult(base.ChiggerResult):
                    srctemp = []
                    c = (0, 0, 0)
                    i = 1
+                   j = j +1
                 else:
                    i = i+1
 
