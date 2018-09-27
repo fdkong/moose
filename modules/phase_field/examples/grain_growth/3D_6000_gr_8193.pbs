@@ -1,0 +1,43 @@
+#!/bin/bash
+#COBALT -t 90
+#COBALT -n 129
+#COBALT --attrs mcdram=cache:numa=quad
+#COBALT -A CSC250STMS07
+
+echo "Starting Cobalt job script"
+export n_nodes=$COBALT_JOBSIZE
+echo $n_nodes
+export n_mpi_ranks_per_node=64
+echo $n_mpi_ranks_per_node
+#export n_mpi_ranks=$((($n_nodes-1) * $n_mpi_ranks_per_node))
+#echo $n_mpi_ranks
+
+export MPICH_RANK_REORDER_METHOD=3
+echo $MPICH_RANK_REORDER_METHOD
+export MPICH_RANK_REORDER_DISPLAY=1
+echo $MPICH_RANK_REORDER_DISPLAY
+
+ln -sf MPICH_RANK_ORDER_8193 MPICH_RANK_ORDER
+cat MPICH_RANK_ORDER
+
+aprun  -n 8193  -N $n_mpi_ranks_per_node  \
+  ../../phase_field-opt  -i  3D_6000_gr_split.i \
+ Mesh/reassign_node_pid=false \
+ Mesh/force_prepare_for_use=false \
+ Mesh/reassign_node_pid=true \
+ Mesh/construct_node_list_from_side_list=false \
+ Mesh/Partitioner/part_package=hierarch \
+ --load_balanced_nodes_petscpartitioner \
+ --color off \
+ --use-split \
+ --split-file 3D_6000_gr_split.cpr \
+ -mat_partitioning_hierarchical_Nfineparts 64 \
+ -pc_type bjacobi \
+ -sub_pc_factor_levels 1 \
+ -sub_pc_type sor \
+ -snes_view \
+ -log_view \
+ -vec_assembly_bts \
+ -matstash_bts \
+ -ksp_view_rhs ::load_balance \
+ -ksp_view_pmat ::load_balance  \

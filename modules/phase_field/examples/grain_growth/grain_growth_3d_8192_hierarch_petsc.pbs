@@ -1,0 +1,28 @@
+#!/bin/bash
+#COBALT -t 90
+#COBALT -n 128
+#COBALT --attrs mcdram=cache:numa=quad
+#COBALT -A scalablemoose
+echo "Starting Cobalt job script"
+export n_nodes=$COBALT_JOBSIZE
+export n_mpi_ranks_per_node=64
+export n_mpi_ranks=$(($n_nodes * $n_mpi_ranks_per_node))
+
+aprun  -n $n_mpi_ranks  \
+  ../../phase_field-opt  -i grain_growth_3D_split.i \
+ Mesh/reassign_node_pid=false \
+ Mesh/force_prepare_for_use=true \
+ Mesh/construct_node_list_from_side_list=false \
+ Mesh/Partitioner/part_package=hierarch \
+ --load_balanced_nodes_petscpartitioner \
+ --color off \
+ --use-split \
+ -mat_partitioning_hierarchical_Nfineparts 64 \
+ -pc_type asm \
+ -sub_pc_factor_levels 1 \
+ -snes_view \
+ -log_view \
+ -vec_assembly_bts \
+ -matstash_bts \
+ -ksp_view_rhs ::load_balance \
+ -ksp_view_pmat ::load_balance  \
