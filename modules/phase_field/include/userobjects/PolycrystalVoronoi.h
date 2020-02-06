@@ -58,4 +58,3 @@ private:
                      const Point & cntr,
                      const unsigned int dim) const;
 };
-
