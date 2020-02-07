@@ -1,9 +1,9 @@
 [Mesh]
   type = GeneratedMesh
   dim = 3
-  nx = 52
-  ny = 52
-  nz = 52
+  nx = 12
+  ny = 12
+  nz = 12
   xmin = 0
   xmax = 520
   ymin = 0
@@ -65,7 +65,6 @@
   [./voronoi]
     type = FauxPolycrystalVoronoi
     int_width = 0
-    execute_on = "initial"
   [../]
 []
 
@@ -517,6 +516,7 @@
     var_name_base = etab
     op_num = 1
   [../]
+#  This is used to count bubbles?
 #  [./feature_counter]
 #    type = FeatureFloodCount
 #    variable = etab0
@@ -546,7 +546,7 @@
 [Executioner]
   # Preconditioned JFNK (default)
   type = Transient
-  nl_max_its = 4
+  nl_max_its = 15
   scheme = bdf2
   #solve_type = NEWTON
   solve_type = PJFNK
@@ -561,15 +561,15 @@
   nl_rel_tol = 1.0e-8
   start_time = 0.0
   num_steps = 100
-#  dt = 8
+  dt = 8
   # end_time = 1.0e9
   nl_abs_tol = 1e-9
-  [./TimeStepper]
-    type = IterationAdaptiveDT
-    dt = 8
-    optimal_iterations = 3
-    iteration_window = 2
-  [../]
+  #[./TimeStepper]
+  #  type = IterationAdaptiveDT
+  #  dt = 0.5
+  #  optimal_iterations = 8
+  #  iteration_window = 2
+  #[../]
 []
 
 [Outputs]
