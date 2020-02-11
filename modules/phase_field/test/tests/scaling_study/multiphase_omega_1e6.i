@@ -460,7 +460,7 @@
     material_property_names = 'Va hb kvbub hm kvmatrix '
     function = '(hm/kvmatrix + hb/kvbub) / Va^2'
     derivative_order = 2
-    outputs = exodus
+   # outputs = exodus
   [../]
   [./chig]
     type = DerivativeParsedMaterial
@@ -469,7 +469,7 @@
     material_property_names = 'Va hb kgbub hm kgmatrix '
     function = '(hm/kgmatrix + hb/kgbub) / Va^2'
     derivative_order = 2
-    outputs = exodus
+  #  outputs = exodus
   [../]
 []
 
@@ -546,7 +546,7 @@
 [Executioner]
   # Preconditioned JFNK (default)
   type = Transient
-  nl_max_its = 4
+  nl_max_its = 10
   scheme = bdf2
   #solve_type = NEWTON
   solve_type = PJFNK
@@ -560,23 +560,23 @@
   l_tol = 1.0e-4
   nl_rel_tol = 1.0e-8
   start_time = 0.0
-  num_steps = 100
-#  dt = 8
+  num_steps = 20
+  dt = 8
   # end_time = 1.0e9
   nl_abs_tol = 1e-9
-  [./TimeStepper]
-    type = IterationAdaptiveDT
-    dt = 8
-    optimal_iterations = 3
-    iteration_window = 2
-  [../]
+#  [./TimeStepper]
+#    type = IterationAdaptiveDT
+#    dt = 8
+#    optimal_iterations = 3
+#    iteration_window = 2
+#  [../]
 []
 
 [Outputs]
-  [./exodus]
-    type = Exodus
-    interval = 1
-  [../]
-  checkpoint = true
-  csv = true
+#  [./exodus]
+#    type = Exodus
+#    interval = 1
+#  [../]
+#  checkpoint = true
+#  csv = true
 []
