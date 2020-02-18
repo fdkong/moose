@@ -2162,8 +2162,8 @@ MooseMesh::init()
   if (_custom_partitioner_requested)
   {
     // Check of partitioner is supplied (not allowed if custom partitioner is used)
-    if (!parameters().isParamSetByAddParam("partitioner"))
-      mooseError("If partitioner block is provided, partitioner keyword cannot be used!");
+    // if (parameters().isParamSetByAddParam("partitioner"))
+    //  mooseError("If partitioner block is provided, partitioner keyword cannot be used!");
     // Set custom partitioner
     if (!_custom_partitioner.get())
       mooseError("Custom partitioner requested but not set!");
