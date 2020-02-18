@@ -11,6 +11,10 @@
   zmin = 0
   zmax = 5200
   # uniform_refine = 2
+  [Partitioner]
+    type = PetscExternalPartitioner
+    part_package = parmetis
+  []
 []
 
 [GlobalParams]
