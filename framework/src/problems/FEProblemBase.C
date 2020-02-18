@@ -756,7 +756,7 @@ FEProblemBase::initialSetup()
   // Do this just in case things have been done to the mesh
   {
     CONSOLE_TIMED_PRINT("Ghosting ghosted boundaries");
-    ghostGhostedBoundaries();
+    // ghostGhostedBoundaries();
   }
 
   _mesh.meshChanged();
@@ -4843,7 +4843,14 @@ FEProblemBase::init()
   if (!_skip_nl_system_check && _solve && n_vars == 0)
     mooseError("No variables specified in the FEProblemBase '", name(), "'.");
 
-  ghostGhostedBoundaries(); // We do this again right here in case new boundaries have been added
+  // MPI_Barrier(PETSC_COMM_WORLD);
+  // std::cout<<" Before ghostGhostedBoundaries  "<<std::endl;
+
+  //ghostGhostedBoundaries(); // We do this again right here in case new boundaries have been added
+
+  
+  // MPI_Barrier(PETSC_COMM_WORLD);
+  // std::cout<<" after ghostGhostedBoundaries "<<std::endl;
 
   // do not assemble system matrix for JFNK solve
   if (solverParams()._type == Moose::ST_JFNK)
@@ -4852,11 +4859,17 @@ FEProblemBase::init()
   _nl->init();
   _aux->init();
 
+  // MPI_Barrier(PETSC_COMM_WORLD);
+  // std::cout<<" Before _eq.init() "<<std::endl;
   {
     TIME_SECTION(_eq_init_timer);
     CONSOLE_TIMED_PRINT("Initializing equation system")
     _eq.init();
   }
+
+  // std::cout<<" After _eq.init() "<<std::endl;
+
+  // MPI_Barrier(PETSC_COMM_WORLD);
 
   _mesh.meshChanged();
   if (_displaced_problem)
