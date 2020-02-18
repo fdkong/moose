@@ -1,3 +1,7 @@
+[Debug]
+  show_actions=true
+[]
+
 [Mesh]
   type = GeneratedMesh
   dim = 3
@@ -548,8 +552,8 @@
   type = Transient
   nl_max_its = 10
   scheme = bdf2
-  #solve_type = NEWTON
-  solve_type = PJFNK
+  # solve_type = NEWTON
+  # solve_type = PJFNK
   petsc_options_iname = '-pc_type -hmg_inner_pc_hypre_boomeramg_stong_threshold'
   petsc_options_value = 'hmg      0.7'
 #  petsc_options_iname = '-pc_type -pc_asm_overlap -sub_pc_type'
