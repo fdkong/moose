@@ -1,0 +1,2831 @@
+
+Building mesh .                                                                            [[33m  2.60 s[39m]
+Initializing equation system ........................                                      [[33m 25.97 s[39m]
+
+Framework Information:
+MOOSE Version:           git commit 67303cf on 2020-02-18
+LibMesh Version:         81589c1acb86765a0a1981b7fef5328e91fb92ab
+PETSc Version:           3.12.2
+Current Time:            Thu Feb 20 11:14:27 2020
+Executable Timestamp:    Wed Feb 19 22:51:00 2020
+
+Parallelism:
+  Num Processors:          3072
+  Num Threads:             1
+
+Mesh: 
+  Parallel Type:           distributed (pre-split)
+  Mesh Dimension:          3
+  Spatial Dimension:       3
+  Nodes:                   
+    Total:                 13997521
+    Local:                 5640
+  Elems:                   
+    Total:                 13824000
+    Local:                 4569
+  Num Subdomains:          1
+  Num Partitions:          1
+  Partitioner:             default
+
+Nonlinear System:
+  Num DOFs:                97982647
+  Num Local DOFs:          39480
+  Variables:               { "wv" "wg" "etab0" "etam0" "etam1" "etam2" "etam3" } 
+  Finite Element Types:    "LAGRANGE" 
+  Approximation Orders:    "FIRST" 
+
+Auxiliary System:
+  Num DOFs:                13997521
+  Num Local DOFs:          5640
+  Variables:               "bnds" 
+  Finite Element Types:    "LAGRANGE" 
+  Approximation Orders:    "FIRST" 
+
+Relationship Managers:
+  Geometric and algebraic: ElementSideNeighborLayers (1 layer) for PeriodicBCs
+  Geometric:               ElementSideNeighborLayers (2 layers) for voronoi
+  Algebraic:               ElementSideNeighborLayers (1 layer) for voronoi_nl
+  Algebraic:               ElementSideNeighborLayers (1 layer) for voronoi_aux
+  Default:                 libMesh::DefaultCoupling x 2
+
+Execution Information:
+  Executioner:             Transient
+  TimeStepper:             ConstantDT
+  Solver Mode:             NEWTON
+  MOOSE Preconditioner:    SMP
+
+Projecting initial condition .........                                                     [[33m 10.49 s[39m]
+
+Time Step 0, time = 0
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
+Time Step 1, time = 8, dt = 8
+ 0 Nonlinear |R| = [32m4.799903e+02[39m
+      0 Linear |R| = [32m4.799903e+02[39m
+      1 Linear |R| = [32m2.060856e+02[39m
+      2 Linear |R| = [32m1.034967e+02[39m
+      3 Linear |R| = [32m4.241900e+01[39m
+      4 Linear |R| = [32m1.768340e+01[39m
+      5 Linear |R| = [32m9.182622e+00[39m
+      6 Linear |R| = [32m5.280120e+00[39m
+      7 Linear |R| = [32m2.704694e+00[39m
+      8 Linear |R| = [32m1.269353e+00[39m
+      9 Linear |R| = [32m6.704703e-01[39m
+     10 Linear |R| = [32m4.105155e-01[39m
+     11 Linear |R| = [32m2.457249e-01[39m
+     12 Linear |R| = [32m1.336055e-01[39m
+     13 Linear |R| = [32m7.173429e-02[39m
+     14 Linear |R| = [32m4.189957e-02[39m
+ 1 Nonlinear |R| = [32m8.300204e+00[39m
+      0 Linear |R| = [32m8.300204e+00[39m
+      1 Linear |R| = [32m2.847556e+00[39m
+      2 Linear |R| = [32m1.072714e+00[39m
+      3 Linear |R| = [32m4.294518e-01[39m
+      4 Linear |R| = [32m2.295012e-01[39m
+      5 Linear |R| = [32m1.344598e-01[39m
+      6 Linear |R| = [32m6.301345e-02[39m
+      7 Linear |R| = [32m2.717519e-02[39m
+      8 Linear |R| = [32m1.383925e-02[39m
+      9 Linear |R| = [32m8.276700e-03[39m
+     10 Linear |R| = [32m4.695512e-03[39m
+     11 Linear |R| = [32m2.436196e-03[39m
+     12 Linear |R| = [32m1.367180e-03[39m
+     13 Linear |R| = [32m8.099712e-04[39m
+ 2 Nonlinear |R| = [32m3.925793e-03[39m
+      0 Linear |R| = [32m3.925793e-03[39m
+      1 Linear |R| = [32m1.768444e-03[39m
+      2 Linear |R| = [32m6.794341e-04[39m
+      3 Linear |R| = [32m3.062414e-04[39m
+      4 Linear |R| = [32m1.805778e-04[39m
+      5 Linear |R| = [32m1.051918e-04[39m
+      6 Linear |R| = [32m5.441057e-05[39m
+      7 Linear |R| = [32m3.110669e-05[39m
+      8 Linear |R| = [32m1.897705e-05[39m
+      9 Linear |R| = [32m1.098017e-05[39m
+     10 Linear |R| = [32m6.258707e-06[39m
+     11 Linear |R| = [32m3.805880e-06[39m
+     12 Linear |R| = [32m2.376554e-06[39m
+     13 Linear |R| = [32m1.370113e-06[39m
+     14 Linear |R| = [32m7.862449e-07[39m
+     15 Linear |R| = [32m4.905205e-07[39m
+     16 Linear |R| = [32m2.964619e-07[39m
+ 3 Nonlinear |R| = [32m4.033623e-06[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=43
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.669754, max = 7.36729
+          eigenvalues estimate via gmres min 0.422917, max 6.69754
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+
+Outlier Variable Residual Norms:
+  wv: [33m3.100317e-06[39m
+  wg: [33m2.578962e-06[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
+Time Step 2, time = 16, dt = 8
+ 0 Nonlinear |R| = [32m6.902057e+02[39m
+      0 Linear |R| = [32m6.902057e+02[39m
+      1 Linear |R| = [32m2.047845e+02[39m
+      2 Linear |R| = [32m6.888591e+01[39m
+      3 Linear |R| = [32m1.779847e+01[39m
+      4 Linear |R| = [32m7.015553e+00[39m
+      5 Linear |R| = [32m2.580365e+00[39m
+      6 Linear |R| = [32m9.272732e-01[39m
+      7 Linear |R| = [32m4.231261e-01[39m
+      8 Linear |R| = [32m1.626106e-01[39m
+      9 Linear |R| = [32m6.665632e-02[39m
+ 1 Nonlinear |R| = [32m1.147426e+01[39m
+      0 Linear |R| = [32m1.147426e+01[39m
+      1 Linear |R| = [32m2.610289e+00[39m
+      2 Linear |R| = [32m5.753529e-01[39m
+      3 Linear |R| = [32m2.115003e-01[39m
+      4 Linear |R| = [32m8.125291e-02[39m
+      5 Linear |R| = [32m2.394569e-02[39m
+      6 Linear |R| = [32m1.020906e-02[39m
+      7 Linear |R| = [32m4.137275e-03[39m
+      8 Linear |R| = [32m1.556324e-03[39m
+      9 Linear |R| = [32m7.250388e-04[39m
+ 2 Nonlinear |R| = [32m9.138600e-04[39m
+      0 Linear |R| = [32m9.138600e-04[39m
+      1 Linear |R| = [32m3.561470e-04[39m
+      2 Linear |R| = [32m1.452240e-04[39m
+      3 Linear |R| = [32m7.545133e-05[39m
+      4 Linear |R| = [32m2.846875e-05[39m
+      5 Linear |R| = [32m1.246099e-05[39m
+      6 Linear |R| = [32m5.382922e-06[39m
+      7 Linear |R| = [32m2.294106e-06[39m
+      8 Linear |R| = [32m1.051264e-06[39m
+      9 Linear |R| = [32m4.747852e-07[39m
+     10 Linear |R| = [32m2.114045e-07[39m
+     11 Linear |R| = [32m8.761773e-08[39m
+ 3 Nonlinear |R| = [32m1.455449e-07[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=29
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.331331, max = 3.64465
+          eigenvalues estimate via gmres min 0.361485, max 3.31331
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+
+Outlier Variable Residual Norms:
+  wv: [33m1.098262e-07[39m
+  wg: [33m9.135765e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
+Time Step 3, time = 24, dt = 8
+ 0 Nonlinear |R| = [32m6.660008e+02[39m
+      0 Linear |R| = [32m6.660008e+02[39m
+      1 Linear |R| = [32m1.676519e+02[39m
+      2 Linear |R| = [32m5.908558e+01[39m
+      3 Linear |R| = [32m1.550593e+01[39m
+      4 Linear |R| = [32m6.052566e+00[39m
+      5 Linear |R| = [32m2.249291e+00[39m
+      6 Linear |R| = [32m8.206423e-01[39m
+      7 Linear |R| = [32m3.669305e-01[39m
+      8 Linear |R| = [32m1.440095e-01[39m
+      9 Linear |R| = [32m5.881792e-02[39m
+ 1 Nonlinear |R| = [32m1.060067e+01[39m
+      0 Linear |R| = [32m1.060067e+01[39m
+      1 Linear |R| = [32m2.477737e+00[39m
+      2 Linear |R| = [32m5.403866e-01[39m
+      3 Linear |R| = [32m1.933017e-01[39m
+      4 Linear |R| = [32m7.657138e-02[39m
+      5 Linear |R| = [32m2.264269e-02[39m
+      6 Linear |R| = [32m9.520377e-03[39m
+      7 Linear |R| = [32m3.944322e-03[39m
+      8 Linear |R| = [32m1.470392e-03[39m
+      9 Linear |R| = [32m6.857779e-04[39m
+ 2 Nonlinear |R| = [32m1.164771e-03[39m
+      0 Linear |R| = [32m1.164771e-03[39m
+      1 Linear |R| = [32m4.258335e-04[39m
+      2 Linear |R| = [32m1.622288e-04[39m
+      3 Linear |R| = [32m8.272127e-05[39m
+      4 Linear |R| = [32m3.386384e-05[39m
+      5 Linear |R| = [32m1.335942e-05[39m
+      6 Linear |R| = [32m6.428614e-06[39m
+      7 Linear |R| = [32m2.578752e-06[39m
+      8 Linear |R| = [32m1.181191e-06[39m
+      9 Linear |R| = [32m5.273012e-07[39m
+     10 Linear |R| = [32m2.343183e-07[39m
+     11 Linear |R| = [32m9.784912e-08[39m
+ 3 Nonlinear |R| = [32m1.480470e-07[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=29
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.333037, max = 3.66341
+          eigenvalues estimate via gmres min 0.361737, max 3.33037
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+
+Outlier Variable Residual Norms:
+  wv: [33m1.113718e-07[39m
+  wg: [33m9.264301e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
+Time Step 4, time = 32, dt = 8
+ 0 Nonlinear |R| = [32m6.416552e+02[39m
+      0 Linear |R| = [32m6.416552e+02[39m
+      1 Linear |R| = [32m1.454403e+02[39m
+      2 Linear |R| = [32m5.275805e+01[39m
+      3 Linear |R| = [32m1.405019e+01[39m
+      4 Linear |R| = [32m5.413072e+00[39m
+      5 Linear |R| = [32m2.024272e+00[39m
+      6 Linear |R| = [32m7.462316e-01[39m
+      7 Linear |R| = [32m3.268841e-01[39m
+      8 Linear |R| = [32m1.298605e-01[39m
+      9 Linear |R| = [32m5.335172e-02[39m
+ 1 Nonlinear |R| = [32m9.695651e+00[39m
+      0 Linear |R| = [32m9.695651e+00[39m
+      1 Linear |R| = [32m2.299554e+00[39m
+      2 Linear |R| = [32m4.994412e-01[39m
+      3 Linear |R| = [32m1.757563e-01[39m
+      4 Linear |R| = [32m7.096949e-02[39m
+      5 Linear |R| = [32m2.106503e-02[39m
+      6 Linear |R| = [32m8.756675e-03[39m
+      7 Linear |R| = [32m3.692151e-03[39m
+      8 Linear |R| = [32m1.369292e-03[39m
+      9 Linear |R| = [32m6.374839e-04[39m
+ 2 Nonlinear |R| = [32m1.007731e-03[39m
+      0 Linear |R| = [32m1.007731e-03[39m
+      1 Linear |R| = [32m3.855593e-04[39m
+      2 Linear |R| = [32m1.486625e-04[39m
+      3 Linear |R| = [32m7.558921e-05[39m
+      4 Linear |R| = [32m3.185629e-05[39m
+      5 Linear |R| = [32m1.234655e-05[39m
+      6 Linear |R| = [32m5.923442e-06[39m
+      7 Linear |R| = [32m2.428725e-06[39m
+      8 Linear |R| = [32m1.090962e-06[39m
+      9 Linear |R| = [32m4.940643e-07[39m
+     10 Linear |R| = [32m2.204006e-07[39m
+     11 Linear |R| = [32m9.192543e-08[39m
+ 3 Nonlinear |R| = [32m1.215825e-07[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=29
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.334688, max = 3.68157
+          eigenvalues estimate via gmres min 0.361985, max 3.34688
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+Outputting console 
+Outlier Variable Residual Norms:
+  wv: [33m9.071248e-08[39m
+  wg: [33m7.545786e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+                                                                        [[33m  1.01 s[39m]
+
+Time Step 5, time = 40, dt = 8
+ 0 Nonlinear |R| = [32m6.183789e+02[39m
+      0 Linear |R| = [32m6.183789e+02[39m
+      1 Linear |R| = [32m1.312933e+02[39m
+      2 Linear |R| = [32m4.829696e+01[39m
+      3 Linear |R| = [32m1.300079e+01[39m
+      4 Linear |R| = [32m4.954692e+00[39m
+      5 Linear |R| = [32m1.858061e+00[39m
+      6 Linear |R| = [32m6.897463e-01[39m
+      7 Linear |R| = [32m2.977518e-01[39m
+      8 Linear |R| = [32m1.186527e-01[39m
+      9 Linear |R| = [32m4.935080e-02[39m
+ 1 Nonlinear |R| = [32m8.835358e+00[39m
+      0 Linear |R| = [32m8.835358e+00[39m
+      1 Linear |R| = [32m2.112539e+00[39m
+      2 Linear |R| = [32m4.583209e-01[39m
+      3 Linear |R| = [32m1.597126e-01[39m
+      4 Linear |R| = [32m6.531741e-02[39m
+      5 Linear |R| = [32m1.944971e-02[39m
+      6 Linear |R| = [32m8.012099e-03[39m
+      7 Linear |R| = [32m3.424541e-03[39m
+      8 Linear |R| = [32m1.266517e-03[39m
+      9 Linear |R| = [32m5.882536e-04[39m
+ 2 Nonlinear |R| = [32m8.088740e-04[39m
+      0 Linear |R| = [32m8.088740e-04[39m
+      1 Linear |R| = [32m3.330310e-04[39m
+      2 Linear |R| = [32m1.307075e-04[39m
+      3 Linear |R| = [32m6.708757e-05[39m
+      4 Linear |R| = [32m2.851859e-05[39m
+      5 Linear |R| = [32m1.104170e-05[39m
+      6 Linear |R| = [32m5.233069e-06[39m
+      7 Linear |R| = [32m2.193660e-06[39m
+      8 Linear |R| = [32m9.750962e-07[39m
+      9 Linear |R| = [32m4.469878e-07[39m
+     10 Linear |R| = [32m1.993793e-07[39m
+     11 Linear |R| = [32m8.330726e-08[39m
+     12 Linear |R| = [32m3.790582e-08[39m
+ 3 Nonlinear |R| = [32m5.359041e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.336253, max = 3.69879
+          eigenvalues estimate via gmres min 0.362225, max 3.36253
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+Outputting console 
+Outlier Variable Residual Norms:
+  wv: [33m3.991479e-08[39m
+  wg: [33m3.320252e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+                                                                        [[33m  1.08 s[39m]
+
+Time Step 6, time = 48, dt = 8
+ 0 Nonlinear |R| = [32m5.964577e+02[39m
+      0 Linear |R| = [32m5.964577e+02[39m
+      1 Linear |R| = [32m1.212758e+02[39m
+      2 Linear |R| = [32m4.486986e+01[39m
+      3 Linear |R| = [32m1.216482e+01[39m
+      4 Linear |R| = [32m4.599697e+00[39m
+      5 Linear |R| = [32m1.728293e+00[39m
+      6 Linear |R| = [32m6.439024e-01[39m
+      7 Linear |R| = [32m2.757007e-01[39m
+      8 Linear |R| = [32m1.097493e-01[39m
+      9 Linear |R| = [32m4.619555e-02[39m
+ 1 Nonlinear |R| = [32m8.058592e+00[39m
+      0 Linear |R| = [32m8.058592e+00[39m
+      1 Linear |R| = [32m1.937480e+00[39m
+      2 Linear |R| = [32m4.204326e-01[39m
+      3 Linear |R| = [32m1.455067e-01[39m
+      4 Linear |R| = [32m6.008395e-02[39m
+      5 Linear |R| = [32m1.794161e-02[39m
+      6 Linear |R| = [32m7.332551e-03[39m
+      7 Linear |R| = [32m3.169958e-03[39m
+      8 Linear |R| = [32m1.170523e-03[39m
+      9 Linear |R| = [32m5.423231e-04[39m
+ 2 Nonlinear |R| = [32m6.809460e-04[39m
+      0 Linear |R| = [32m6.809460e-04[39m
+      1 Linear |R| = [32m2.965539e-04[39m
+      2 Linear |R| = [32m1.163692e-04[39m
+      3 Linear |R| = [32m6.040877e-05[39m
+      4 Linear |R| = [32m2.587675e-05[39m
+      5 Linear |R| = [32m1.000135e-05[39m
+      6 Linear |R| = [32m4.696291e-06[39m
+      7 Linear |R| = [32m2.003190e-06[39m
+      8 Linear |R| = [32m8.829162e-07[39m
+      9 Linear |R| = [32m4.083223e-07[39m
+     10 Linear |R| = [32m1.818676e-07[39m
+     11 Linear |R| = [32m7.640307e-08[39m
+     12 Linear |R| = [32m3.477093e-08[39m
+ 3 Nonlinear |R| = [32m4.206962e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.337731, max = 3.71504
+          eigenvalues estimate via gmres min 0.362458, max 3.37731
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+
+Outlier Variable Residual Norms:
+  wv: [33m3.082482e-08[39m
+  wg: [33m2.564120e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
+Time Step 7, time = 56, dt = 8
+ 0 Nonlinear |R| = [32m5.758904e+02[39m
+      0 Linear |R| = [32m5.758904e+02[39m
+      1 Linear |R| = [32m1.135524e+02[39m
+      2 Linear |R| = [32m4.207402e+01[39m
+      3 Linear |R| = [32m1.146283e+01[39m
+      4 Linear |R| = [32m4.310001e+00[39m
+      5 Linear |R| = [32m1.622877e+00[39m
+      6 Linear |R| = [32m6.051934e-01[39m
+      7 Linear |R| = [32m2.582188e-01[39m
+      8 Linear |R| = [32m1.026012e-01[39m
+      9 Linear |R| = [32m4.355869e-02[39m
+ 1 Nonlinear |R| = [32m7.367829e+00[39m
+      0 Linear |R| = [32m7.367829e+00[39m
+      1 Linear |R| = [32m1.779333e+00[39m
+      2 Linear |R| = [32m3.864301e-01[39m
+      3 Linear |R| = [32m1.329981e-01[39m
+      4 Linear |R| = [32m5.536180e-02[39m
+      5 Linear |R| = [32m1.657557e-02[39m
+      6 Linear |R| = [32m6.724487e-03[39m
+      7 Linear |R| = [32m2.936540e-03[39m
+      8 Linear |R| = [32m1.083432e-03[39m
+      9 Linear |R| = [32m5.006729e-04[39m
+ 2 Nonlinear |R| = [32m5.987961e-04[39m
+      0 Linear |R| = [32m5.987961e-04[39m
+      1 Linear |R| = [32m2.706704e-04[39m
+      2 Linear |R| = [32m1.056471e-04[39m
+      3 Linear |R| = [32m5.524191e-05[39m
+      4 Linear |R| = [32m2.389752e-05[39m
+      5 Linear |R| = [32m9.197022e-06[39m
+      6 Linear |R| = [32m4.296315e-06[39m
+      7 Linear |R| = [32m1.856637e-06[39m
+      8 Linear |R| = [32m8.124750e-07[39m
+      9 Linear |R| = [32m3.774719e-07[39m
+     10 Linear |R| = [32m1.682383e-07[39m
+     11 Linear |R| = [32m7.107746e-08[39m
+     12 Linear |R| = [32m3.231231e-08[39m
+ 3 Nonlinear |R| = [32m3.667123e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.33913, max = 3.73043
+          eigenvalues estimate via gmres min 0.362684, max 3.3913
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+
+Outlier Variable Residual Norms:
+  wv: [33m2.654489e-08[39m
+  wg: [33m2.208101e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
+Time Step 8, time = 64, dt = 8
+ 0 Nonlinear |R| = [32m5.565947e+02[39m
+      0 Linear |R| = [32m5.565947e+02[39m
+      1 Linear |R| = [32m1.072222e+02[39m
+      2 Linear |R| = [32m3.969607e+01[39m
+      3 Linear |R| = [32m1.085471e+01[39m
+      4 Linear |R| = [32m4.064204e+00[39m
+      5 Linear |R| = [32m1.534037e+00[39m
+      6 Linear |R| = [32m5.716318e-01[39m
+      7 Linear |R| = [32m2.436961e-01[39m
+      8 Linear |R| = [32m9.669762e-02[39m
+      9 Linear |R| = [32m4.127050e-02[39m
+ 1 Nonlinear |R| = [32m6.753075e+00[39m
+      0 Linear |R| = [32m6.753075e+00[39m
+      1 Linear |R| = [32m1.637159e+00[39m
+      2 Linear |R| = [32m3.559551e-01[39m
+      3 Linear |R| = [32m1.219220e-01[39m
+      4 Linear |R| = [32m5.110966e-02[39m
+      5 Linear |R| = [32m1.534335e-02[39m
+      6 Linear |R| = [32m6.181027e-03[39m
+      7 Linear |R| = [32m2.724151e-03[39m
+      8 Linear |R| = [32m1.004819e-03[39m
+      9 Linear |R| = [32m4.630960e-04[39m
+ 2 Nonlinear |R| = [32m5.377723e-04[39m
+      0 Linear |R| = [32m5.377723e-04[39m
+      1 Linear |R| = [32m2.498705e-04[39m
+      2 Linear |R| = [32m9.702119e-05[39m
+      3 Linear |R| = [32m5.094488e-05[39m
+      4 Linear |R| = [32m2.226557e-05[39m
+      5 Linear |R| = [32m8.528680e-06[39m
+      6 Linear |R| = [32m3.972115e-06[39m
+      7 Linear |R| = [32m1.734683e-06[39m
+      8 Linear |R| = [32m7.546030e-07[39m
+      9 Linear |R| = [32m3.513710e-07[39m
+     10 Linear |R| = [32m1.569573e-07[39m
+     11 Linear |R| = [32m6.669477e-08[39m
+     12 Linear |R| = [32m3.030538e-08[39m
+ 3 Nonlinear |R| = [32m3.327735e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.34046, max = 3.74506
+          eigenvalues estimate via gmres min 0.362902, max 3.4046
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+
+Outlier Variable Residual Norms:
+  wv: [33m2.386213e-08[39m
+  wg: [33m1.984940e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   6.400000e+01 |   1.382400e+10 |   2.877295e+07 |   5.569406e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
+Time Step 9, time = 72, dt = 8
+ 0 Nonlinear |R| = [32m5.384728e+02[39m
+      0 Linear |R| = [32m5.384728e+02[39m
+      1 Linear |R| = [32m1.018207e+02[39m
+      2 Linear |R| = [32m3.761655e+01[39m
+      3 Linear |R| = [32m1.031731e+01[39m
+      4 Linear |R| = [32m3.849918e+00[39m
+      5 Linear |R| = [32m1.456912e+00[39m
+      6 Linear |R| = [32m5.420081e-01[39m
+      7 Linear |R| = [32m2.311923e-01[39m
+      8 Linear |R| = [32m9.166618e-02[39m
+      9 Linear |R| = [32m3.924119e-02[39m
+ 1 Nonlinear |R| = [32m6.203444e+00[39m
+      0 Linear |R| = [32m6.203444e+00[39m
+      1 Linear |R| = [32m1.508971e+00[39m
+      2 Linear |R| = [32m3.285165e-01[39m
+      3 Linear |R| = [32m1.120466e-01[39m
+      4 Linear |R| = [32m4.726777e-02[39m
+      5 Linear |R| = [32m1.422915e-02[39m
+      6 Linear |R| = [32m5.693860e-03[39m
+      7 Linear |R| = [32m2.530895e-03[39m
+      8 Linear |R| = [32m9.337823e-04[39m
+      9 Linear |R| = [32m4.291763e-04[39m
+ 2 Nonlinear |R| = [32m4.874592e-04[39m
+      0 Linear |R| = [32m4.874592e-04[39m
+      1 Linear |R| = [32m2.318103e-04[39m
+      2 Linear |R| = [32m8.959488e-05[39m
+      3 Linear |R| = [32m4.718892e-05[39m
+      4 Linear |R| = [32m2.081334e-05[39m
+      5 Linear |R| = [32m7.940655e-06[39m
+      6 Linear |R| = [32m3.690685e-06[39m
+      7 Linear |R| = [32m1.626495e-06[39m
+      8 Linear |R| = [32m7.040481e-07[39m
+      9 Linear |R| = [32m3.283159e-07[39m
+     10 Linear |R| = [32m1.470858e-07[39m
+     11 Linear |R| = [32m6.290548e-08[39m
+     12 Linear |R| = [32m2.859688e-08[39m
+ 3 Nonlinear |R| = [32m3.072728e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.341733, max = 3.75907
+          eigenvalues estimate via gmres min 0.363112, max 3.41733
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+Outputting console 
+Outlier Variable Residual Norms:
+  wv: [33m2.186806e-08[39m
+  wg: [33m1.819066e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   6.400000e+01 |   1.382400e+10 |   2.877295e+07 |   5.569406e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   7.200000e+01 |   1.382400e+10 |   2.874116e+07 |   5.569174e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+                                                                        [[33m  1.02 s[39m]
+
+Time Step 10, time = 80, dt = 8
+ 0 Nonlinear |R| = [32m5.214308e+02[39m
+      0 Linear |R| = [32m5.214308e+02[39m
+      1 Linear |R| = [32m9.709161e+01[39m
+      2 Linear |R| = [32m3.576438e+01[39m
+      3 Linear |R| = [32m9.835912e+00[39m
+      4 Linear |R| = [32m3.659780e+00[39m
+      5 Linear |R| = [32m1.388566e+00[39m
+      6 Linear |R| = [32m5.155429e-01[39m
+      7 Linear |R| = [32m2.201778e-01[39m
+      8 Linear |R| = [32m8.727228e-02[39m
+      9 Linear |R| = [32m3.741893e-02[39m
+ 1 Nonlinear |R| = [32m5.709986e+00[39m
+      0 Linear |R| = [32m5.709986e+00[39m
+      1 Linear |R| = [32m1.393039e+00[39m
+      2 Linear |R| = [32m3.037168e-01[39m
+      3 Linear |R| = [32m1.031973e-01[39m
+      4 Linear |R| = [32m4.378709e-02[39m
+      5 Linear |R| = [32m1.321955e-02[39m
+      6 Linear |R| = [32m5.256120e-03[39m
+      7 Linear |R| = [32m2.354999e-03[39m
+      8 Linear |R| = [32m8.695307e-04[39m
+      9 Linear |R| = [32m3.985464e-04[39m
+ 2 Nonlinear |R| = [32m4.442845e-04[39m
+      0 Linear |R| = [32m4.442845e-04[39m
+      1 Linear |R| = [32m2.157096e-04[39m
+      2 Linear |R| = [32m8.303951e-05[39m
+      3 Linear |R| = [32m4.384859e-05[39m
+      4 Linear |R| = [32m1.948962e-05[39m
+      5 Linear |R| = [32m7.412456e-06[39m
+      6 Linear |R| = [32m3.440054e-06[39m
+      7 Linear |R| = [32m1.528391e-06[39m
+      8 Linear |R| = [32m6.587833e-07[39m
+      9 Linear |R| = [32m3.076450e-07[39m
+     10 Linear |R| = [32m1.382753e-07[39m
+     11 Linear |R| = [32m5.956383e-08[39m
+     12 Linear |R| = [32m2.711570e-08[39m
+ 3 Nonlinear |R| = [32m2.867350e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.342965, max = 3.77261
+          eigenvalues estimate via gmres min 0.363313, max 3.42965
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+
+Outlier Variable Residual Norms:
+  wv: [33m2.028723e-08[39m
+  wg: [33m1.687567e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   6.400000e+01 |   1.382400e+10 |   2.877295e+07 |   5.569406e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   7.200000e+01 |   1.382400e+10 |   2.874116e+07 |   5.569174e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.000000e+01 |   1.382400e+10 |   2.870450e+07 |   5.568725e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
+Time Step 11, time = 88, dt = 8
+ 0 Nonlinear |R| = [32m5.053826e+02[39m
+      0 Linear |R| = [32m5.053826e+02[39m
+      1 Linear |R| = [32m9.288033e+01[39m
+      2 Linear |R| = [32m3.409406e+01[39m
+      3 Linear |R| = [32m9.400451e+00[39m
+      4 Linear |R| = [32m3.489143e+00[39m
+      5 Linear |R| = [32m1.327209e+00[39m
+      6 Linear |R| = [32m4.917062e-01[39m
+      7 Linear |R| = [32m2.103435e-01[39m
+      8 Linear |R| = [32m8.337496e-02[39m
+      9 Linear |R| = [32m3.577065e-02[39m
+ 1 Nonlinear |R| = [32m5.265591e+00[39m
+      0 Linear |R| = [32m5.265591e+00[39m
+      1 Linear |R| = [32m1.287993e+00[39m
+      2 Linear |R| = [32m2.812534e-01[39m
+      3 Linear |R| = [32m9.524285e-02[39m
+      4 Linear |R| = [32m4.062971e-02[39m
+      5 Linear |R| = [32m1.230414e-02[39m
+      6 Linear |R| = [32m4.862355e-03[39m
+      7 Linear |R| = [32m2.195025e-03[39m
+      8 Linear |R| = [32m8.114360e-04[39m
+      9 Linear |R| = [32m3.709063e-04[39m
+ 2 Nonlinear |R| = [32m4.068573e-04[39m
+      0 Linear |R| = [32m4.068573e-04[39m
+      1 Linear |R| = [32m2.012913e-04[39m
+      2 Linear |R| = [32m7.723911e-05[39m
+      3 Linear |R| = [32m4.087124e-05[39m
+      4 Linear |R| = [32m1.828487e-05[39m
+      5 Linear |R| = [32m6.937364e-06[39m
+      6 Linear |R| = [32m3.216031e-06[39m
+      7 Linear |R| = [32m1.439408e-06[39m
+      8 Linear |R| = [32m6.180808e-07[39m
+      9 Linear |R| = [32m2.890954e-07[39m
+     10 Linear |R| = [32m1.304054e-07[39m
+     11 Linear |R| = [32m5.660315e-08[39m
+     12 Linear |R| = [32m2.582632e-08[39m
+ 3 Nonlinear |R| = [32m2.698139e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.34417, max = 3.78587
+          eigenvalues estimate via gmres min 0.363505, max 3.4417
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+
+Outlier Variable Residual Norms:
+  wv: [33m1.900803e-08[39m
+  wg: [33m1.581159e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   6.400000e+01 |   1.382400e+10 |   2.877295e+07 |   5.569406e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   7.200000e+01 |   1.382400e+10 |   2.874116e+07 |   5.569174e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.000000e+01 |   1.382400e+10 |   2.870450e+07 |   5.568725e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.800000e+01 |   1.382400e+10 |   2.866347e+07 |   5.568078e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
+Time Step 12, time = 96, dt = 8
+ 0 Nonlinear |R| = [32m4.902506e+02[39m
+      0 Linear |R| = [32m4.902506e+02[39m
+      1 Linear |R| = [32m8.908564e+01[39m
+      2 Linear |R| = [32m3.257452e+01[39m
+      3 Linear |R| = [32m9.003791e+00[39m
+      4 Linear |R| = [32m3.334859e+00[39m
+      5 Linear |R| = [32m1.271696e+00[39m
+      6 Linear |R| = [32m4.701227e-01[39m
+      7 Linear |R| = [32m2.014952e-01[39m
+      8 Linear |R| = [32m7.988806e-02[39m
+      9 Linear |R| = [32m3.427370e-02[39m
+ 1 Nonlinear |R| = [32m4.864440e+00[39m
+      0 Linear |R| = [32m4.864440e+00[39m
+      1 Linear |R| = [32m1.192705e+00[39m
+      2 Linear |R| = [32m2.608846e-01[39m
+      3 Linear |R| = [32m8.807881e-02[39m
+      4 Linear |R| = [32m3.776469e-02[39m
+      5 Linear |R| = [32m1.147449e-02[39m
+      6 Linear |R| = [32m4.508047e-03[39m
+      7 Linear |R| = [32m2.049745e-03[39m
+      8 Linear |R| = [32m7.589776e-04[39m
+      9 Linear |R| = [32m3.460002e-04[39m
+ 2 Nonlinear |R| = [32m3.743270e-04[39m
+      0 Linear |R| = [32m3.743270e-04[39m
+      1 Linear |R| = [32m1.883923e-04[39m
+      2 Linear |R| = [32m7.212352e-05[39m
+      3 Linear |R| = [32m3.822215e-05[39m
+      4 Linear |R| = [32m1.719669e-05[39m
+      5 Linear |R| = [32m6.511882e-06[39m
+      6 Linear |R| = [32m3.016257e-06[39m
+      7 Linear |R| = [32m1.359148e-06[39m
+      8 Linear |R| = [32m5.815654e-07[39m
+      9 Linear |R| = [32m2.725046e-07[39m
+     10 Linear |R| = [32m1.234071e-07[39m
+     11 Linear |R| = [32m5.398163e-08[39m
+     12 Linear |R| = [32m2.470600e-08[39m
+ 3 Nonlinear |R| = [32m2.557452e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.345368, max = 3.79905
+          eigenvalues estimate via gmres min 0.363689, max 3.45368
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+Outputting console 
+Outlier Variable Residual Norms:
+  wv: [33m1.796360e-08[39m
+  wg: [33m1.494280e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   6.400000e+01 |   1.382400e+10 |   2.877295e+07 |   5.569406e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   7.200000e+01 |   1.382400e+10 |   2.874116e+07 |   5.569174e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.000000e+01 |   1.382400e+10 |   2.870450e+07 |   5.568725e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.800000e+01 |   1.382400e+10 |   2.866347e+07 |   5.568078e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   9.600000e+01 |   1.382400e+10 |   2.861855e+07 |   5.567254e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+                                                                        [[33m  1.16 s[39m]
+
+Time Step 13, time = 104, dt = 8
+ 0 Nonlinear |R| = [32m4.759644e+02[39m
+      0 Linear |R| = [32m4.759644e+02[39m
+      1 Linear |R| = [32m8.563678e+01[39m
+      2 Linear |R| = [32m3.118346e+01[39m
+      3 Linear |R| = [32m8.640735e+00[39m
+      4 Linear |R| = [32m3.194671e+00[39m
+      5 Linear |R| = [32m1.221257e+00[39m
+      6 Linear |R| = [32m4.505176e-01[39m
+      7 Linear |R| = [32m1.935019e-01[39m
+      8 Linear |R| = [32m7.675610e-02[39m
+      9 Linear |R| = [32m3.291190e-02[39m
+ 1 Nonlinear |R| = [32m4.501611e+00[39m
+      0 Linear |R| = [32m4.501611e+00[39m
+      1 Linear |R| = [32m1.106198e+00[39m
+      2 Linear |R| = [32m2.424045e-01[39m
+      3 Linear |R| = [32m8.161814e-02[39m
+      4 Linear |R| = [32m3.516520e-02[39m
+      5 Linear |R| = [32m1.072324e-02[39m
+      6 Linear |R| = [32m4.189282e-03[39m
+      7 Linear |R| = [32m1.918042e-03[39m
+      8 Linear |R| = [32m7.116980e-04[39m
+      9 Linear |R| = [32m3.235982e-04[39m
+ 2 Nonlinear |R| = [32m3.459968e-04[39m
+      0 Linear |R| = [32m3.459968e-04[39m
+      1 Linear |R| = [32m1.768706e-04[39m
+      2 Linear |R| = [32m6.762694e-05[39m
+      3 Linear |R| = [32m3.587029e-05[39m
+      4 Linear |R| = [32m1.622105e-05[39m
+      5 Linear |R| = [32m6.132738e-06[39m
+      6 Linear |R| = [32m2.838659e-06[39m
+      7 Linear |R| = [32m1.287197e-06[39m
+      8 Linear |R| = [32m5.489309e-07[39m
+      9 Linear |R| = [32m2.577294e-07[39m
+     10 Linear |R| = [32m1.172183e-07[39m
+     11 Linear |R| = [32m5.166741e-08[39m
+     12 Linear |R| = [32m2.373826e-08[39m
+ 3 Nonlinear |R| = [32m2.440084e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.346581, max = 3.81239
+          eigenvalues estimate via gmres min 0.363867, max 3.46581
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+Outputting console 
+Outlier Variable Residual Norms:
+  wv: [33m1.710697e-08[39m
+  wg: [33m1.423022e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   6.400000e+01 |   1.382400e+10 |   2.877295e+07 |   5.569406e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   7.200000e+01 |   1.382400e+10 |   2.874116e+07 |   5.569174e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.000000e+01 |   1.382400e+10 |   2.870450e+07 |   5.568725e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.800000e+01 |   1.382400e+10 |   2.866347e+07 |   5.568078e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   9.600000e+01 |   1.382400e+10 |   2.861855e+07 |   5.567254e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.040000e+02 |   1.382400e+10 |   2.857018e+07 |   5.566268e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+                                                                        [[33m  1.17 s[39m]
+
+Time Step 14, time = 112, dt = 8
+ 0 Nonlinear |R| = [32m4.624602e+02[39m
+      0 Linear |R| = [32m4.624602e+02[39m
+      1 Linear |R| = [32m8.248202e+01[39m
+      2 Linear |R| = [32m2.990427e+01[39m
+      3 Linear |R| = [32m8.307405e+00[39m
+      4 Linear |R| = [32m3.066883e+00[39m
+      5 Linear |R| = [32m1.175341e+00[39m
+      6 Linear |R| = [32m4.326839e-01[39m
+      7 Linear |R| = [32m1.862692e-01[39m
+      8 Linear |R| = [32m7.394107e-02[39m
+      9 Linear |R| = [32m3.167321e-02[39m
+ 1 Nonlinear |R| = [32m4.172851e+00[39m
+      0 Linear |R| = [32m4.172851e+00[39m
+      1 Linear |R| = [32m1.027604e+00[39m
+      2 Linear |R| = [32m2.256316e-01[39m
+      3 Linear |R| = [32m7.578571e-02[39m
+      4 Linear |R| = [32m3.280700e-02[39m
+      5 Linear |R| = [32m1.004374e-02[39m
+      6 Linear |R| = [32m3.902571e-03[39m
+      7 Linear |R| = [32m1.798857e-03[39m
+      8 Linear |R| = [32m6.691788e-04[39m
+      9 Linear |R| = [32m3.034875e-04[39m
+ 2 Nonlinear |R| = [32m3.212709e-04[39m
+      0 Linear |R| = [32m3.212709e-04[39m
+      1 Linear |R| = [32m1.665947e-04[39m
+      2 Linear |R| = [32m6.368601e-05[39m
+      3 Linear |R| = [32m3.378664e-05[39m
+      4 Linear |R| = [32m1.535203e-05[39m
+      5 Linear |R| = [32m5.796551e-06[39m
+      6 Linear |R| = [32m2.681264e-06[39m
+      7 Linear |R| = [32m1.223070e-06[39m
+      8 Linear |R| = [32m5.198914e-07[39m
+      9 Linear |R| = [32m2.446349e-07[39m
+     10 Linear |R| = [32m1.117800e-07[39m
+     11 Linear |R| = [32m4.963521e-08[39m
+     12 Linear |R| = [32m2.291119e-08[39m
+ 3 Nonlinear |R| = [32m2.342383e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.347829, max = 3.82612
+          eigenvalues estimate via gmres min 0.364042, max 3.47829
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+
+Outlier Variable Residual Norms:
+  wv: [33m1.640460e-08[39m
+  wg: [33m1.364597e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|   0.000000e+00 |   1.382400e+10 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |   0.000000e+00 |
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   6.400000e+01 |   1.382400e+10 |   2.877295e+07 |   5.569406e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   7.200000e+01 |   1.382400e+10 |   2.874116e+07 |   5.569174e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.000000e+01 |   1.382400e+10 |   2.870450e+07 |   5.568725e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.800000e+01 |   1.382400e+10 |   2.866347e+07 |   5.568078e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   9.600000e+01 |   1.382400e+10 |   2.861855e+07 |   5.567254e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.040000e+02 |   1.382400e+10 |   2.857018e+07 |   5.566268e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.120000e+02 |   1.382400e+10 |   2.851878e+07 |   5.565139e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
+Time Step 15, time = 120, dt = 8
+ 0 Nonlinear |R| = [32m4.496801e+02[39m
+      0 Linear |R| = [32m4.496801e+02[39m
+      1 Linear |R| = [32m7.958213e+01[39m
+      2 Linear |R| = [32m2.872412e+01[39m
+      3 Linear |R| = [32m8.000810e+00[39m
+      4 Linear |R| = [32m2.950170e+00[39m
+      5 Linear |R| = [32m1.133532e+00[39m
+      6 Linear |R| = [32m4.164601e-01[39m
+      7 Linear |R| = [32m1.797259e-01[39m
+      8 Linear |R| = [32m7.141535e-02[39m
+      9 Linear |R| = [32m3.054831e-02[39m
+ 1 Nonlinear |R| = [32m3.874447e+00[39m
+      0 Linear |R| = [32m3.874447e+00[39m
+      1 Linear |R| = [32m9.561386e-01[39m
+      2 Linear |R| = [32m2.104020e-01[39m
+      3 Linear |R| = [32m7.051537e-02[39m
+      4 Linear |R| = [32m3.066782e-02[39m
+      5 Linear |R| = [32m9.429801e-03[39m
+      6 Linear |R| = [32m3.644749e-03[39m
+      7 Linear |R| = [32m1.691173e-03[39m
+      8 Linear |R| = [32m6.310275e-04[39m
+      9 Linear |R| = [32m2.854679e-04[39m
+ 2 Nonlinear |R| = [32m2.996466e-04[39m
+      0 Linear |R| = [32m2.996466e-04[39m
+      1 Linear |R| = [32m1.574437e-04[39m
+      2 Linear |R| = [32m6.024253e-05[39m
+      3 Linear |R| = [32m3.194434e-05[39m
+      4 Linear |R| = [32m1.458276e-05[39m
+      5 Linear |R| = [32m5.499968e-06[39m
+      6 Linear |R| = [32m2.542239e-06[39m
+      7 Linear |R| = [32m1.166241e-06[39m
+      8 Linear |R| = [32m4.941783e-07[39m
+      9 Linear |R| = [32m2.330945e-07[39m
+     10 Linear |R| = [32m1.070379e-07[39m
+     11 Linear |R| = [32m4.786480e-08[39m
+     12 Linear |R| = [32m2.221630e-08[39m
+ 3 Nonlinear |R| = [32m2.261842e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.349134, max = 3.84048
+          eigenvalues estimate via gmres min 0.364218, max 3.49134
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+
+Outlier Variable Residual Norms:
+  wv: [33m1.583327e-08[39m
+  wg: [33m1.317071e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+:                :                :                :                :                :                :                :
+|   8.000000e+00 |   1.382400e+10 |   2.881546e+07 |   5.563474e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   6.400000e+01 |   1.382400e+10 |   2.877295e+07 |   5.569406e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   7.200000e+01 |   1.382400e+10 |   2.874116e+07 |   5.569174e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.000000e+01 |   1.382400e+10 |   2.870450e+07 |   5.568725e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.800000e+01 |   1.382400e+10 |   2.866347e+07 |   5.568078e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   9.600000e+01 |   1.382400e+10 |   2.861855e+07 |   5.567254e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.040000e+02 |   1.382400e+10 |   2.857018e+07 |   5.566268e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.120000e+02 |   1.382400e+10 |   2.851878e+07 |   5.565139e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.200000e+02 |   1.382400e+10 |   2.846474e+07 |   5.563881e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
+Time Step 16, time = 128, dt = 8
+ 0 Nonlinear |R| = [32m4.375713e+02[39m
+      0 Linear |R| = [32m4.375713e+02[39m
+      1 Linear |R| = [32m7.690638e+01[39m
+      2 Linear |R| = [32m2.763276e+01[39m
+      3 Linear |R| = [32m7.718544e+00[39m
+      4 Linear |R| = [32m2.843458e+00[39m
+      5 Linear |R| = [32m1.095500e+00[39m
+      6 Linear |R| = [32m4.017144e-01[39m
+      7 Linear |R| = [32m1.738147e-01[39m
+      8 Linear |R| = [32m6.915747e-02[39m
+      9 Linear |R| = [32m2.952951e-02[39m
+ 1 Nonlinear |R| = [32m3.603143e+00[39m
+      0 Linear |R| = [32m3.603143e+00[39m
+      1 Linear |R| = [32m8.910950e-01[39m
+      2 Linear |R| = [32m1.965664e-01[39m
+      3 Linear |R| = [32m6.574816e-02[39m
+      4 Linear |R| = [32m2.872691e-02[39m
+      5 Linear |R| = [32m8.875551e-03[39m
+      6 Linear |R| = [32m3.412923e-03[39m
+      7 Linear |R| = [32m1.593996e-03[39m
+      8 Linear |R| = [32m5.968692e-04[39m
+      9 Linear |R| = [32m2.693492e-04[39m
+ 2 Nonlinear |R| = [32m2.807019e-04[39m
+      0 Linear |R| = [32m2.807019e-04[39m
+      1 Linear |R| = [32m1.493070e-04[39m
+      2 Linear |R| = [32m5.724406e-05[39m
+      3 Linear |R| = [32m3.031865e-05[39m
+      4 Linear |R| = [32m1.390594e-05[39m
+      5 Linear |R| = [32m5.239741e-06[39m
+      6 Linear |R| = [32m2.419884e-06[39m
+      7 Linear |R| = [32m1.116154e-06[39m
+      8 Linear |R| = [32m4.715388e-07[39m
+      9 Linear |R| = [32m2.229882e-07[39m
+     10 Linear |R| = [32m1.029416e-07[39m
+     11 Linear |R| = [32m4.633930e-08[39m
+     12 Linear |R| = [32m2.164727e-08[39m
+ 3 Nonlinear |R| = [32m2.196697e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.350515, max = 3.85567
+          eigenvalues estimate via gmres min 0.364402, max 3.50515
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+Outputting console 
+Outlier Variable Residual Norms:
+  wv: [33m1.537664e-08[39m
+  wg: [33m1.279087e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+:                :                :                :                :                :                :                :
+|   1.600000e+01 |   1.382400e+10 |   2.883098e+07 |   5.565067e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   6.400000e+01 |   1.382400e+10 |   2.877295e+07 |   5.569406e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   7.200000e+01 |   1.382400e+10 |   2.874116e+07 |   5.569174e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.000000e+01 |   1.382400e+10 |   2.870450e+07 |   5.568725e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.800000e+01 |   1.382400e+10 |   2.866347e+07 |   5.568078e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   9.600000e+01 |   1.382400e+10 |   2.861855e+07 |   5.567254e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.040000e+02 |   1.382400e+10 |   2.857018e+07 |   5.566268e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.120000e+02 |   1.382400e+10 |   2.851878e+07 |   5.565139e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.200000e+02 |   1.382400e+10 |   2.846474e+07 |   5.563881e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.280000e+02 |   1.382400e+10 |   2.840858e+07 |   5.562510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+                                                                        [[33m  1.03 s[39m]
+
+Time Step 17, time = 136, dt = 8
+ 0 Nonlinear |R| = [32m4.260856e+02[39m
+      0 Linear |R| = [32m4.260856e+02[39m
+      1 Linear |R| = [32m7.442995e+01[39m
+      2 Linear |R| = [32m2.662168e+01[39m
+      3 Linear |R| = [32m7.458573e+00[39m
+      4 Linear |R| = [32m2.745840e+00[39m
+      5 Linear |R| = [32m1.060963e+00[39m
+      6 Linear |R| = [32m3.883332e-01[39m
+      7 Linear |R| = [32m1.684865e-01[39m
+      8 Linear |R| = [32m6.714935e-02[39m
+      9 Linear |R| = [32m2.861000e-02[39m
+ 1 Nonlinear |R| = [32m3.356073e+00[39m
+      0 Linear |R| = [32m3.356073e+00[39m
+      1 Linear |R| = [32m8.318325e-01[39m
+      2 Linear |R| = [32m1.839877e-01[39m
+      3 Linear |R| = [32m6.143109e-02[39m
+      4 Linear |R| = [32m2.696489e-02[39m
+      5 Linear |R| = [32m8.375388e-03[39m
+      6 Linear |R| = [32m3.204426e-03[39m
+      7 Linear |R| = [32m1.506362e-03[39m
+      8 Linear |R| = [32m5.663416e-04[39m
+      9 Linear |R| = [32m2.549501e-04[39m
+ 2 Nonlinear |R| = [32m2.640785e-04[39m
+      0 Linear |R| = [32m2.640785e-04[39m
+      1 Linear |R| = [32m1.420814e-04[39m
+      2 Linear |R| = [32m5.464318e-05[39m
+      3 Linear |R| = [32m2.888666e-05[39m
+      4 Linear |R| = [32m1.331412e-05[39m
+      5 Linear |R| = [32m5.012715e-06[39m
+      6 Linear |R| = [32m2.312600e-06[39m
+      7 Linear |R| = [32m1.072224e-06[39m
+      8 Linear |R| = [32m4.517321e-07[39m
+      9 Linear |R| = [32m2.142004e-07[39m
+     10 Linear |R| = [32m9.944367e-08[39m
+     11 Linear |R| = [32m4.504375e-08[39m
+     12 Linear |R| = [32m2.119845e-08[39m
+ 3 Nonlinear |R| = [32m2.145597e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.351987, max = 3.87185
+          eigenvalues estimate via gmres min 0.364598, max 3.51987
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+
+Outlier Variable Residual Norms:
+  wv: [33m1.502250e-08[39m
+  wg: [33m1.249629e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+:                :                :                :                :                :                :                :
+|   2.400000e+01 |   1.382400e+10 |   2.883968e+07 |   5.566510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   6.400000e+01 |   1.382400e+10 |   2.877295e+07 |   5.569406e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   7.200000e+01 |   1.382400e+10 |   2.874116e+07 |   5.569174e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.000000e+01 |   1.382400e+10 |   2.870450e+07 |   5.568725e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.800000e+01 |   1.382400e+10 |   2.866347e+07 |   5.568078e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   9.600000e+01 |   1.382400e+10 |   2.861855e+07 |   5.567254e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.040000e+02 |   1.382400e+10 |   2.857018e+07 |   5.566268e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.120000e+02 |   1.382400e+10 |   2.851878e+07 |   5.565139e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.200000e+02 |   1.382400e+10 |   2.846474e+07 |   5.563881e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.280000e+02 |   1.382400e+10 |   2.840858e+07 |   5.562510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.360000e+02 |   1.382400e+10 |   2.835056e+07 |   5.561038e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
+Time Step 18, time = 144, dt = 8
+ 0 Nonlinear |R| = [32m4.151790e+02[39m
+      0 Linear |R| = [32m4.151790e+02[39m
+      1 Linear |R| = [32m7.213220e+01[39m
+      2 Linear |R| = [32m2.568357e+01[39m
+      3 Linear |R| = [32m7.219084e+00[39m
+      4 Linear |R| = [32m2.656512e+00[39m
+      5 Linear |R| = [32m1.029662e+00[39m
+      6 Linear |R| = [32m3.762133e-01[39m
+      7 Linear |R| = [32m1.636958e-01[39m
+      8 Linear |R| = [32m6.537439e-02[39m
+      9 Linear |R| = [32m2.778327e-02[39m
+ 1 Nonlinear |R| = [32m3.130710e+00[39m
+      0 Linear |R| = [32m3.130710e+00[39m
+      1 Linear |R| = [32m7.777715e-01[39m
+      2 Linear |R| = [32m1.725399e-01[39m
+      3 Linear |R| = [32m5.751634e-02[39m
+      4 Linear |R| = [32m2.536365e-02[39m
+      5 Linear |R| = [32m7.923940e-03[39m
+      6 Linear |R| = [32m3.016798e-03[39m
+      7 Linear |R| = [32m1.427335e-03[39m
+      8 Linear |R| = [32m5.390931e-04[39m
+      9 Linear |R| = [32m2.420972e-04[39m
+ 2 Nonlinear |R| = [32m2.494685e-04[39m
+      0 Linear |R| = [32m2.494685e-04[39m
+      1 Linear |R| = [32m1.356696e-04[39m
+      2 Linear |R| = [32m5.239634e-05[39m
+      3 Linear |R| = [32m2.762695e-05[39m
+      4 Linear |R| = [32m1.279979e-05[39m
+      5 Linear |R| = [32m4.815809e-06[39m
+      6 Linear |R| = [32m2.218853e-06[39m
+      7 Linear |R| = [32m1.033842e-06[39m
+      8 Linear |R| = [32m4.345268e-07[39m
+      9 Linear |R| = [32m2.066173e-07[39m
+     10 Linear |R| = [32m9.649776e-08[39m
+     11 Linear |R| = [32m4.396391e-08[39m
+     12 Linear |R| = [32m2.086354e-08[39m
+ 3 Nonlinear |R| = [32m2.107394e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.35356, max = 3.88916
+          eigenvalues estimate via gmres min 0.364812, max 3.5356
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+
+Outlier Variable Residual Norms:
+  wv: [33m1.476096e-08[39m
+  wg: [33m1.227873e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+:                :                :                :                :                :                :                :
+|   3.200000e+01 |   1.382400e+10 |   2.884050e+07 |   5.567686e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   6.400000e+01 |   1.382400e+10 |   2.877295e+07 |   5.569406e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   7.200000e+01 |   1.382400e+10 |   2.874116e+07 |   5.569174e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.000000e+01 |   1.382400e+10 |   2.870450e+07 |   5.568725e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.800000e+01 |   1.382400e+10 |   2.866347e+07 |   5.568078e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   9.600000e+01 |   1.382400e+10 |   2.861855e+07 |   5.567254e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.040000e+02 |   1.382400e+10 |   2.857018e+07 |   5.566268e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.120000e+02 |   1.382400e+10 |   2.851878e+07 |   5.565139e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.200000e+02 |   1.382400e+10 |   2.846474e+07 |   5.563881e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.280000e+02 |   1.382400e+10 |   2.840858e+07 |   5.562510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.360000e+02 |   1.382400e+10 |   2.835056e+07 |   5.561038e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.440000e+02 |   1.382400e+10 |   2.829111e+07 |   5.559479e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
+Time Step 19, time = 152, dt = 8
+ 0 Nonlinear |R| = [32m4.048109e+02[39m
+      0 Linear |R| = [32m4.048109e+02[39m
+      1 Linear |R| = [32m6.999546e+01[39m
+      2 Linear |R| = [32m2.481189e+01[39m
+      3 Linear |R| = [32m6.998390e+00[39m
+      4 Linear |R| = [32m2.574742e+00[39m
+      5 Linear |R| = [32m1.001348e+00[39m
+      6 Linear |R| = [32m3.652561e-01[39m
+      7 Linear |R| = [32m1.593986e-01[39m
+      8 Linear |R| = [32m6.381616e-02[39m
+      9 Linear |R| = [32m2.704283e-02[39m
+ 1 Nonlinear |R| = [32m2.924820e+00[39m
+      0 Linear |R| = [32m2.924820e+00[39m
+      1 Linear |R| = [32m7.283877e-01[39m
+      2 Linear |R| = [32m1.621072e-01[39m
+      3 Linear |R| = [32m5.396066e-02[39m
+      4 Linear |R| = [32m2.390630e-02[39m
+      5 Linear |R| = [32m7.516075e-03[39m
+      6 Linear |R| = [32m2.847773e-03[39m
+      7 Linear |R| = [32m1.356014e-03[39m
+      8 Linear |R| = [32m5.147830e-04[39m
+      9 Linear |R| = [32m2.306259e-04[39m
+ 2 Nonlinear |R| = [32m2.366042e-04[39m
+      0 Linear |R| = [32m2.366042e-04[39m
+      1 Linear |R| = [32m1.299796e-04[39m
+      2 Linear |R| = [32m5.046309e-05[39m
+      3 Linear |R| = [32m2.651947e-05[39m
+      4 Linear |R| = [32m1.235546e-05[39m
+      5 Linear |R| = [32m4.645997e-06[39m
+      6 Linear |R| = [32m2.137165e-06[39m
+      7 Linear |R| = [32m1.000384e-06[39m
+      8 Linear |R| = [32m4.197012e-07[39m
+      9 Linear |R| = [32m2.001259e-07[39m
+     10 Linear |R| = [32m9.405769e-08[39m
+     11 Linear |R| = [32m4.308549e-08[39m
+     12 Linear |R| = [32m2.063427e-08[39m
+ 3 Nonlinear |R| = [32m2.080829e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.355238, max = 3.90762
+          eigenvalues estimate via gmres min 0.365048, max 3.55238
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+Outputting console 
+Outlier Variable Residual Norms:
+  wv: [33m1.458177e-08[39m
+  wg: [33m1.212968e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+:                :                :                :                :                :                :                :
+|   4.000000e+01 |   1.382400e+10 |   2.883364e+07 |   5.568557e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   6.400000e+01 |   1.382400e+10 |   2.877295e+07 |   5.569406e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   7.200000e+01 |   1.382400e+10 |   2.874116e+07 |   5.569174e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.000000e+01 |   1.382400e+10 |   2.870450e+07 |   5.568725e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.800000e+01 |   1.382400e+10 |   2.866347e+07 |   5.568078e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   9.600000e+01 |   1.382400e+10 |   2.861855e+07 |   5.567254e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.040000e+02 |   1.382400e+10 |   2.857018e+07 |   5.566268e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.120000e+02 |   1.382400e+10 |   2.851878e+07 |   5.565139e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.200000e+02 |   1.382400e+10 |   2.846474e+07 |   5.563881e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.280000e+02 |   1.382400e+10 |   2.840858e+07 |   5.562510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.360000e+02 |   1.382400e+10 |   2.835056e+07 |   5.561038e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.440000e+02 |   1.382400e+10 |   2.829111e+07 |   5.559479e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.520000e+02 |   1.382400e+10 |   2.823119e+07 |   5.557844e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+                                                                        [[33m  1.13 s[39m]
+
+Time Step 20, time = 160, dt = 8
+ 0 Nonlinear |R| = [32m3.949445e+02[39m
+      0 Linear |R| = [32m3.949445e+02[39m
+      1 Linear |R| = [32m6.800428e+01[39m
+      2 Linear |R| = [32m2.400072e+01[39m
+      3 Linear |R| = [32m6.794870e+00[39m
+      4 Linear |R| = [32m2.499840e+00[39m
+      5 Linear |R| = [32m9.757719e-01[39m
+      6 Linear |R| = [32m3.553644e-01[39m
+      7 Linear |R| = [32m1.555506e-01[39m
+      8 Linear |R| = [32m6.245774e-02[39m
+      9 Linear |R| = [32m2.638201e-02[39m
+ 1 Nonlinear |R| = [32m2.736426e+00[39m
+      0 Linear |R| = [32m2.736426e+00[39m
+      1 Linear |R| = [32m6.832078e-01[39m
+      2 Linear |R| = [32m1.525834e-01[39m
+      3 Linear |R| = [32m5.072501e-02[39m
+      4 Linear |R| = [32m2.257725e-02[39m
+      5 Linear |R| = [32m7.146920e-03[39m
+      6 Linear |R| = [32m2.695264e-03[39m
+      7 Linear |R| = [32m1.291543e-03[39m
+      8 Linear |R| = [32m4.930837e-04[39m
+      9 Linear |R| = [32m2.203805e-04[39m
+ 2 Nonlinear |R| = [32m2.252507e-04[39m
+      0 Linear |R| = [32m2.252507e-04[39m
+      1 Linear |R| = [32m1.249243e-04[39m
+      2 Linear |R| = [32m4.880553e-05[39m
+      3 Linear |R| = [32m2.554540e-05[39m
+      4 Linear |R| = [32m1.197380e-05[39m
+      5 Linear |R| = [32m4.500303e-06[39m
+      6 Linear |R| = [32m2.066106e-06[39m
+      7 Linear |R| = [32m9.712297e-07[39m
+      8 Linear |R| = [32m4.070435e-07[39m
+      9 Linear |R| = [32m1.946144e-07[39m
+     10 Linear |R| = [32m9.207704e-08[39m
+     11 Linear |R| = [32m4.239342e-08[39m
+     12 Linear |R| = [32m2.049944e-08[39m
+ 3 Nonlinear |R| = [32m2.064537e-08[39m
+SNES Object: 3072 MPI processes
+  type: newtonls
+  maximum iterations=15, maximum function evaluations=10000
+  tolerances: relative=1e-08, absolute=1e-09, solution=1e-50
+  total number of linear solver iterations=30
+  total number of function evaluations=4
+  norm schedule ALWAYS
+  SNESLineSearch Object: 3072 MPI processes
+    type: bt
+      interpolation: cubic
+      alpha=1.000000e-04
+    maxstep=1.000000e+08, minlambda=1.000000e-12
+    tolerances: relative=1.000000e-08, absolute=1.000000e-15, lambda=1.000000e-08
+    maximum iterations=40
+  KSP Object: 3072 MPI processes
+    type: gmres
+      restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      happy breakdown tolerance 1e-30
+    maximum iterations=45, initial guess is zero
+    tolerances:  relative=0.0001, absolute=1e-50, divergence=1e+100
+    right preconditioning
+    using UNPRECONDITIONED norm type for convergence test
+  PC Object: 3072 MPI processes
+    type: hmg
+     Reuse interpolation: false
+     Use subspace coarsening: false
+     Coarsening component: 0 
+     Use MatMAIJ: true 
+     Inner PC type: hypre 
+      type is MULTIPLICATIVE, levels=1 cycles=v
+        Cycles per PCApply=1
+        Not using Galerkin computed coarse grid matrices
+    Coarse grid solver -- level -------------------------------
+      KSP Object: (mg_levels_0_) 3072 MPI processes
+        type: chebyshev
+          eigenvalue estimates used:  min = 0.357022, max = 3.92724
+          eigenvalues estimate via gmres min 0.365308, max 3.57022
+          eigenvalues estimated using gmres with translations  [0. 0.1; 0. 1.1]
+          KSP Object: (mg_levels_0_esteig_) 3072 MPI processes
+            type: gmres
+              restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+              happy breakdown tolerance 1e-30
+            maximum iterations=10, initial guess is zero
+            tolerances:  relative=1e-12, absolute=1e-50, divergence=10000.
+            left preconditioning
+            using PRECONDITIONED norm type for convergence test
+          estimating eigenvalues using noisy right hand side
+        maximum iterations=2, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using NONE norm type for convergence test
+      PC Object: (mg_levels_0_) 3072 MPI processes
+        type: sor
+          type = local_symmetric, iterations = 1, local iterations = 1, omega = 1.
+        linear system matrix = precond matrix:
+        Mat Object: () 3072 MPI processes
+          type: mpiaij
+          rows=97982647, cols=97982647, bs=7
+          total: nonzeros=17908432513, allocated nonzeros=20188571683
+          total number of mallocs used during MatSetValues calls=0
+            using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+    linear system matrix = precond matrix:
+    Mat Object: () 3072 MPI processes
+      type: mpiaij
+      rows=97982647, cols=97982647, bs=7
+      total: nonzeros=17908432513, allocated nonzeros=20188571683
+      total number of mallocs used during MatSetValues calls=0
+        using I-node (on process 0) routines: found 16920 nodes, limit used is 5
+[32m Solve Converged![39m
+Outputting console 
+Outlier Variable Residual Norms:
+  wv: [33m1.447447e-08[39m
+  wg: [33m1.204042e-08[39m
+
+Postprocessor Values:
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| time           | Volume         | area           | area_bubble    | dt             | number_DOFs    | volume_fraction|
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+:                :                :                :                :                :                :                :
+|   4.800000e+01 |   1.382400e+10 |   2.881972e+07 |   5.569121e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   5.600000e+01 |   1.382400e+10 |   2.879931e+07 |   5.569397e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   6.400000e+01 |   1.382400e+10 |   2.877295e+07 |   5.569406e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   7.200000e+01 |   1.382400e+10 |   2.874116e+07 |   5.569174e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.000000e+01 |   1.382400e+10 |   2.870450e+07 |   5.568725e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   8.800000e+01 |   1.382400e+10 |   2.866347e+07 |   5.568078e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   9.600000e+01 |   1.382400e+10 |   2.861855e+07 |   5.567254e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.040000e+02 |   1.382400e+10 |   2.857018e+07 |   5.566268e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.120000e+02 |   1.382400e+10 |   2.851878e+07 |   5.565139e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.200000e+02 |   1.382400e+10 |   2.846474e+07 |   5.563881e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.280000e+02 |   1.382400e+10 |   2.840858e+07 |   5.562510e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.360000e+02 |   1.382400e+10 |   2.835056e+07 |   5.561038e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.440000e+02 |   1.382400e+10 |   2.829111e+07 |   5.559479e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.520000e+02 |   1.382400e+10 |   2.823119e+07 |   5.557844e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
+|   1.600000e+02 |   1.382400e+10 |   2.817072e+07 |   5.556143e+06 |   8.000000e+00 |   1.119802e+08 |   0.000000e+00 |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+                                                                        [[33m  1.14 s[39m]
+************************************************************************************************************************
+***             WIDEN YOUR WINDOW TO 120 CHARACTERS.  Use 'enscript -r -fCourier9' to print this document            ***
+************************************************************************************************************************
+
+---------------------------------------------- PETSc Performance Summary: ----------------------------------------------
+
+../../../phase_field-opt on a arch-linux2-c-hmg-64bit-opt named r1i0n0 with 3072 processors, by kongf Thu Feb 20 11:36:45 2020
+Using Petsc Release Version 3.12.2, unknown 
+
+                         Max       Max/Min     Avg       Total 
+Time (sec):           1.389e+03     1.000   1.389e+03
+Objects:              2.156e+03     1.000   2.156e+03
+Flop:                 5.783e+10     2.113   4.478e+10  1.376e+14
+Flop/sec:             4.162e+07     2.113   3.223e+07  9.901e+10
+MPI Messages:         1.000e+05     2.409   6.734e+04  2.069e+08
+MPI Message Lengths:  2.610e+09     1.855   2.892e+04  5.984e+12
+MPI Reductions:       4.449e+03     1.000
+
+Flop counting convention: 1 flop = 1 real number operation of type (multiply/divide/add/subtract)
+                            e.g., VecAXPY() for real vectors of length N --> 2N flop
+                            and VecAXPY() for complex vectors of length N --> 8N flop
+
+Summary of Stages:   ----- Time ------  ----- Flop ------  --- Messages ---  -- Message Lengths --  -- Reductions --
+                        Avg     %Total     Avg     %Total    Count   %Total     Avg         %Total    Count   %Total 
+ 0:      Main Stage: 1.3894e+03 100.0%  1.3756e+14 100.0%  2.069e+08 100.0%  2.892e+04      100.0%  4.442e+03  99.8% 
+
+------------------------------------------------------------------------------------------------------------------------
+See the 'Profiling' chapter of the users' manual for details on interpreting output.
+Phase summary info:
+   Count: number of times phase was executed
+   Time and Flop: Max - maximum over all processors
+                  Ratio - ratio of maximum to minimum over all processors
+   Mess: number of messages sent
+   AvgLen: average message length (bytes)
+   Reduct: number of global reductions
+   Global: entire computation
+   Stage: stages of a computation. Set stages with PetscLogStagePush() and PetscLogStagePop().
+      %T - percent time in this phase         %F - percent flop in this phase
+      %M - percent messages in this phase     %L - percent message lengths in this phase
+      %R - percent reductions in this phase
+   Total Mflop/s: 10e-6 * (sum of flop over all processors)/(max time over all processors)
+------------------------------------------------------------------------------------------------------------------------
+Event                Count      Time (sec)     Flop                              --- Global ---  --- Stage ----  Total
+                   Max Ratio  Max     Ratio   Max  Ratio  Mess   AvgLen  Reduct  %T %F %M %L %R  %T %F %M %L %R Mflop/s
+------------------------------------------------------------------------------------------------------------------------
+
+--- Event Stage 0: Main Stage
+
+BuildTwoSided         71 1.0 8.1662e-01 1.3 0.00e+00 0.0 2.7e+05 8.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+BuildTwoSidedF      2595 1.0 5.3708e+01 3.4 0.00e+00 0.0 2.0e+07 2.1e+05 0.0e+00  3  0 10 73  0   3  0 10 73  0     0
+MatMult             1940 1.0 3.2955e+02 7.1 2.95e+10 2.1 9.7e+07 8.8e+03 0.0e+00  4 50 47 14  0   4 50 47 14  0 210268
+MatSOR              2000 1.0 5.9332e+01 2.1 2.61e+10 2.2 0.0e+00 0.0e+00 0.0e+00  3 45  0  0  0   3 45  0  0  0 1041311
+MatConvert            60 1.0 7.3022e+01 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 2.4e+02  5  0  0  0  5   5  0  0  0  5     0
+MatAssemblyBegin     420 1.0 3.5184e+01 1.1 0.00e+00 0.0 2.2e+06 1.9e+06 0.0e+00  2  0  1 71  0   2  0  1 71  0     0
+MatAssemblyEnd       420 1.0 7.9639e+01 1.0 1.51e+08 0.0 7.5e+04 5.9e+03 9.6e+02  6  0  0  0 22   6  0  0  0 22  2194
+MatGetRowIJ          120 1.0 1.1754e-04 3.4 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+MatZeroEntries        62 1.0 1.6789e+00 2.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+MatView               40 1.0 8.8051e-02 1.4 0.00e+00 0.0 0.0e+00 0.0e+00 4.0e+01  0  0  0  0  1   0  0  0  0  1     0
+VecDot                60 1.0 1.4569e+00 1.7 4.90e+06 2.1 0.0e+00 0.0e+00 6.0e+01  0  0  0  0  1   0  0  0  0  1  8070
+VecMDot             1210 1.0 3.1750e+0210.6 5.55e+08 2.1 0.0e+00 0.0e+00 1.2e+03 22  1  0  0 27  22  1  0  0 27  4190
+VecNorm             1470 1.0 7.6461e+00 1.2 1.20e+08 2.1 0.0e+00 0.0e+00 1.5e+03  1  0  0  0 33   1  0  0  0 33 37675
+VecScale            1691 1.0 4.3659e-02 2.3 6.20e+07 1.9 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0 3474072
+VecCopy             2208 1.0 2.8394e-01 2.5 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecSet              2182 1.0 1.2559e-01 2.1 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecAXPY             1213 1.0 6.2633e-02 1.8 7.34e+07 1.7 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0 3041618
+VecAYPX             1340 1.0 2.7131e-01 3.1 8.21e+07 2.1 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0 725900
+VecAXPBYCZ           670 1.0 1.6854e-01 2.6 1.37e+08 2.1 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0 1947613
+VecWAXPY              60 1.0 1.4111e-02 3.5 2.45e+06 2.1 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0 416614
+VecMAXPY            1330 1.0 4.2812e-01 2.3 6.53e+08 2.1 0.0e+00 0.0e+00 0.0e+00  0  1  0  0  0   0  1  0  0  0 3660933
+VecAssemblyBegin    2175 1.0 2.1969e+01 2.1 0.00e+00 0.0 1.8e+07 6.6e+03 0.0e+00  1  0  9  2  0   1  0  9  2  0     0
+VecAssemblyEnd      2175 1.0 4.8143e-0217.8 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecScatterBegin     3469 1.0 1.1498e+00 3.9 0.00e+00 0.0 1.7e+08 9.0e+03 0.0e+00  0  0 83 26  0   0  0 83 26  0     0
+VecScatterEnd       3469 1.0 2.8871e+02278.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  1  0  0  0  0   1  0  0  0  0     0
+VecReduceArith       120 1.0 8.6212e-03 1.9 9.80e+06 2.1 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0 2727628
+VecReduceComm         60 1.0 3.0022e+00 3.5 0.00e+00 0.0 0.0e+00 0.0e+00 6.0e+01  0  0  0  0  1   0  0  0  0  1     0
+VecNormalize        1330 1.0 7.0968e+00 1.2 1.58e+08 2.1 0.0e+00 0.0e+00 1.3e+03  0  0  0  0 29   0  0  0  0 29 53431
+SFSetGraph            71 1.0 9.2292e-04 6.4 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFSetUp               71 1.0 8.3526e-01 1.3 0.00e+00 0.0 8.1e+05 4.9e+03 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFBcastOpBegin      3469 1.0 1.1395e+00 4.0 0.00e+00 0.0 1.7e+08 9.0e+03 0.0e+00  0  0 83 26  0   0  0 83 26  0     0
+SFBcastOpEnd        3469 1.0 2.8870e+02279.5 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  1  0  0  0  0   1  0  0  0  0     0
+SFReduceBegin         60 1.0 4.2939e-04 2.5 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFReduceEnd           60 1.0 3.8624e-05 2.9 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SNESSolve             20 1.0 1.2826e+03 1.0 5.78e+10 2.1 1.7e+08 3.4e+04 4.2e+03 92100 80 95 94  92100 80 95 94 107209
+SNESSetUp             20 1.0 3.5381e-04 3.8 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SNESFunctionEval      80 1.0 3.6217e+01 1.0 5.14e+07 1.6 5.8e+07 9.3e+03 1.6e+02  3  0 28  9  4   3  0 28  9  4  3714
+SNESJacobianEval      60 1.0 7.4360e+02 1.0 9.66e+08 1.9 1.1e+07 3.8e+05 9.0e+02 54  2  5 72 20  54  2  5 72 20  3225
+SNESLineSearch        60 1.0 3.4056e+01 1.1 9.78e+08 2.1 4.7e+07 9.2e+03 3.6e+02  2  2 23  7  8   2  2 23  7  8 67790
+KSPSetUp             180 1.0 1.4330e+00 1.8 0.00e+00 0.0 0.0e+00 0.0e+00 1.2e+02  0  0  0  0  3   0  0  0  0  3     0
+KSPSolve              60 1.0 4.9864e+02 1.0 5.59e+10 2.1 9.4e+07 8.8e+03 2.8e+03 36 97 45 14 64  36 97 45 14 64 266244
+KSPGMRESOrthog      1210 1.0 3.1775e+0210.5 1.11e+09 2.1 0.0e+00 0.0e+00 1.2e+03 22  2  0  0 27  22  2  0  0 27  8373
+PCSetUp               60 1.0 8.8613e+01 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 3.6e+02  6  0  0  0  8   6  0  0  0  8     0
+PCApply              670 1.0 3.6479e+02 4.4 4.60e+10 2.1 6.3e+07 8.8e+03 1.3e+03  7 79 31  9 28   7 79 31  9 28 299591
+------------------------------------------------------------------------------------------------------------------------
+
+Memory usage is given in bytes:
+
+Object Type          Creations   Destructions     Memory  Descendants' Mem.
+Reports information only for process 0.
+
+--- Event Stage 0: Main Stage
+
+    Distributed Mesh    20             20        99680     0.
+              Matrix    63             63    141751600     0.
+           Index Set    22             22      1021256     0.
+   IS L to G Mapping    10             10      2916768     0.
+              Vector  1657           1657    484055592     0.
+         Vec Scatter    11             11         9416     0.
+   Star Forest Graph   111            111       117216     0.
+                SNES    20             20        30720     0.
+              DMSNES    20             20        14400     0.
+      SNESLineSearch    20             20        20960     0.
+     Discrete System    20             20        20160     0.
+       Krylov Solver    60             60      2188000     0.
+     DMKSP interface    20             20        14080     0.
+      Preconditioner   100            100       141920     0.
+              Viewer     2              1          896     0.
+========================================================================================================================
+Average time to get PetscTime(): 2.38419e-08
+Average time for MPI_Barrier(): 0.00452337
+Average time for zero size MPI_Send(): 1.64945e-05
+#PETSc Option Table entries:
+--split-file multiphase_omega_1e8
+--use-split
+-i multiphase_omega_1e8.i
+-log_view
+-snes_view
+#End of PETSc Option Table entries
+Compiled without FORTRAN kernels
+Compiled with 64 bit PetscInt
+Compiled with full precision matrices (default)
+sizeof(short) 2 sizeof(int) 4 sizeof(long) 8 sizeof(void*) 8 sizeof(PetscScalar) 8 sizeof(PetscInt) 8
+Configure options: --with-debugging=no --with-shared-libraries=1 --with-mpi=1 --download-fblaslapack=1 --download-metis=1 --download-parmetis=1 --download-superlu_dist=1 --download-hypre=1 --download-ptscotch=1 --with-mpi=1 --download-cmake --with-cxx-dialect=C++11 --with-64-bit-indices=1 PETSC_ARCH=arch-linux2-c-hmg-64bit-opt
+-----------------------------------------
+Libraries compiled on 2020-02-11 00:11:43 on sawtooth1 
+Machine characteristics: Linux-3.10.0-1062.9.1.el7.x86_64-x86_64-with-centos-7.7.1908-Core
+Using PETSc directory: /home/kongf/workhome/sawtooth/petsc
+Using PETSc arch: arch-linux2-c-hmg-64bit-opt
+-----------------------------------------
+
+Using C compiler: mpicc  -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fstack-protector -fvisibility=hidden -g -O  
+Using Fortran compiler: mpif90  -fPIC -Wall -ffree-line-length-0 -Wno-unused-dummy-argument -g -O    
+-----------------------------------------
+
+Using include paths: -I/home/kongf/workhome/sawtooth/petsc/include -I/home/kongf/workhome/sawtooth/petsc/arch-linux2-c-hmg-64bit-opt/include
+-----------------------------------------
+
+Using C linker: mpicc
+Using Fortran linker: mpif90
+Using libraries: -Wl,-rpath,/home/kongf/workhome/sawtooth/petsc/arch-linux2-c-hmg-64bit-opt/lib -L/home/kongf/workhome/sawtooth/petsc/arch-linux2-c-hmg-64bit-opt/lib -lpetsc -Wl,-rpath,/home/kongf/workhome/sawtooth/petsc/arch-linux2-c-hmg-64bit-opt/lib -L/home/kongf/workhome/sawtooth/petsc/arch-linux2-c-hmg-64bit-opt/lib -Wl,-rpath,/apps/local/mvapich2/2.3.3/lib -L/apps/local/mvapich2/2.3.3/lib -Wl,-rpath,/apps/local/spack/software/gcc-4.8.5/gcc-9.2.0-bxc7mvbmrfcrusa6ij7ux3exfqabmq5y/lib:/apps/local/spack/software/gcc-4.8.5/gcc-9.2.0-bxc7mvbmrfcrusa6ij7ux3exfqabmq5y/lib64 -Wl,-rpath,/apps/local/spack/software/gcc-4.8.5/gcc-9.2.0-bxc7mvbmrfcrusa6ij7ux3exfqabmq5y/lib/gcc/x86_64-pc-linux-gnu/9.2.0 -L/apps/local/spack/software/gcc-4.8.5/gcc-9.2.0-bxc7mvbmrfcrusa6ij7ux3exfqabmq5y/lib/gcc/x86_64-pc-linux-gnu/9.2.0 -Wl,-rpath,/apps/local/spack/software/gcc-4.8.5/gcc-9.2.0-bxc7mvbmrfcrusa6ij7ux3exfqabmq5y/lib64 -L/apps/local/spack/software/gcc-4.8.5/gcc-9.2.0-bxc7mvbmrfcrusa6ij7ux3exfqabmq5y/lib64 -Wl,-rpath,/apps/local/spack/software/gcc-4.8.5/gcc-9.2.0-bxc7mvbmrfcrusa6ij7ux3exfqabmq5y/lib -L/apps/local/spack/software/gcc-4.8.5/gcc-9.2.0-bxc7mvbmrfcrusa6ij7ux3exfqabmq5y/lib -lHYPRE -lsuperlu_dist -lflapack -lfblas -lptesmumps -lptscotchparmetis -lptscotch -lptscotcherr -lesmumps -lscotch -lscotcherr -lpthread -lparmetis -lmetis -lm -lX11 -lstdc++ -ldl -lmpifort -lmpi -lgfortran -lm -lgfortran -lm -lgcc_s -lquadmath -lrt -lquadmath -lstdc++ -ldl
+-----------------------------------------
+
