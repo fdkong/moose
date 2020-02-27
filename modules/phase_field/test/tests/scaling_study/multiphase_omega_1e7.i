@@ -1,19 +1,21 @@
 [Mesh]
-  type = GeneratedMesh
-  dim = 3
-  nx = 112
-  ny = 112
-  nz = 112
-  xmin = 0
-  xmax = 1120
-  ymin = 0
-  ymax = 1120
-  zmin = 0
-  zmax = 1120
-  [Partitioner]
-    type = PetscExternalPartitioner
-    part_package = hierarch
+  [GMG]
+    type = DistributedRectilinearMeshGenerator
+    dim = 3
+    nx = 112
+    ny = 112
+    nz = 112
+    xmin = 0
+    xmax = 1120
+    ymin = 0
+    ymax = 1120
+    zmin = 0
+    zmax = 1120
   []
+ # [Partitioner]
+ #   type = PetscExternalPartitioner
+ #   part_package = hierarch
+ # []
   # uniform_refine = 2
 []
 

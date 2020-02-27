@@ -3,7 +3,8 @@
 []
 
 [Mesh]
-  type = GeneratedMesh
+  [gmg]
+  type = DistributedRectilinearMeshGenerator
   dim = 3
   nx = 52
   ny = 52
@@ -16,6 +17,7 @@
   zmax = 520
   # uniform_refine = 2
 #  parallel_type = distributed
+  []
 []
 
 [GlobalParams]
@@ -577,10 +579,10 @@
 []
 
 [Outputs]
-#  [./exodus]
-#    type = Exodus
-#    interval = 1
-#  [../]
+  [./exodus]
+    type = Exodus
+    interval = 1
+  [../]
 #  checkpoint = true
 #  csv = true
 []

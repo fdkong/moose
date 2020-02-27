@@ -1,20 +1,22 @@
 [Mesh]
-  type = GeneratedMesh
-  dim = 3
-  nx = 520
-  ny = 520
-  nz = 520
-  xmin = 0
-  xmax = 5200
-  ymin = 0
-  ymax = 5200
-  zmin = 0
-  zmax = 5200
-  # uniform_refine = 2
-  [Partitioner]
-    type = PetscExternalPartitioner
-    part_package = parmetis
+  [GMG]
+    type = DistributedRectilinearMeshGenerator
+    dim = 3
+    nx = 520
+    ny = 520
+    nz = 520
+    xmin = 0
+    xmax = 5200
+    ymin = 0
+    ymax = 5200
+    zmin = 0
+    zmax = 5200
   []
+  # uniform_refine = 2
+  #[Partitioner]
+  #  type = PetscExternalPartitioner
+  #  part_package = parmetis
+  #[]
 []
 
 [GlobalParams]
