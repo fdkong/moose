@@ -310,7 +310,8 @@ PetscExternalPartitioner::partitionGraph(const Parallel::Communicator & comm,
   CHKERRABORT(comm.get(), ierr);
   ierr = ISDestroy(&is);
   CHKERRABORT(comm.get(), ierr);
-
+  ierr = MatDestroy(&dual);
+  CHKERRABORT(comm.get(), ierr);
 #else
   mooseError("Petsc is required for this partitioner");
 #endif

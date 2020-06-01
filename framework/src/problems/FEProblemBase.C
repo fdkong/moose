@@ -4589,29 +4589,46 @@ FEProblemBase::init()
   _nl->init();
   _aux->init();
 
-  // MPI_Barrier(PETSC_COMM_WORLD);
-  // std::cout<<" Before _eq.init() "<<std::endl;
+  MPI_Barrier(PETSC_COMM_WORLD);
+  std::cout<<" Before _eq.init() "<<std::endl;
   {
     TIME_SECTION(_eq_init_timer);
     CONSOLE_TIMED_PRINT("Initializing equation system")
     _eq.init();
   }
 
-  // std::cout<<" After _eq.init() "<<std::endl;
+  MPI_Barrier(PETSC_COMM_WORLD);
+  std::cout<<" After _eq.init() "<<std::endl;
 
-  // MPI_Barrier(PETSC_COMM_WORLD);
-
+  std::cout<<" Before _mesh.meshChanged() "<<std::endl;
   _mesh.meshChanged();
   if (_displaced_problem)
     _displaced_mesh->meshChanged();
 
+  MPI_Barrier(PETSC_COMM_WORLD);
+  std::cout<<" After _mesh.meshChanged() "<<std::endl; 
+
+  
+  std::cout<<" Before _nl->update() "<<std::endl; 
   _nl->update();
 
+  MPI_Barrier(PETSC_COMM_WORLD);
+  std::cout<<" After _nl->update "<<std::endl; 
+
+  
+  std::cout<<" Before _assembly init "<<std::endl; 
   for (THREAD_ID tid = 0; tid < libMesh::n_threads(); ++tid)
     _assembly[tid]->init(_cm.get());
 
+  MPI_Barrier(PETSC_COMM_WORLD);
+  std::cout<<" After _assembly[tid]->init "<<std::endl; 
+  
+  std::cout<<" before _displaced_problem->init() "<<std::endl;
   if (_displaced_problem)
     _displaced_problem->init();
+
+  MPI_Barrier(PETSC_COMM_WORLD);
+  std::cout<<" After _displaced_problem->init "<<std::endl;
 
   _initialized = true;
 }

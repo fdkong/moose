@@ -1,5 +1,9 @@
+[Debug]
+  show_actions=true
+[]
+
 [Mesh]
-  [GMG]
+  [gmg]
     type = DistributedRectilinearMeshGenerator
     dim = 3
     nx = 112

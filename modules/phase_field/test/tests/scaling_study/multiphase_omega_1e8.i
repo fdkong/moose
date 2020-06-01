@@ -1,5 +1,9 @@
+[Debug]
+  show_actions=true
+[]
+
 [Mesh]
-  [GMG]
+  [gmg]
     type = DistributedRectilinearMeshGenerator
     dim = 3
     nx = 240
@@ -581,4 +585,8 @@
 #  [../]
 #  checkpoint = true
 #  csv = true
+  [./perf_graph]
+    type = PerfGraphOutput
+    level = 10                     
+  [../] 
 []
