@@ -579,10 +579,10 @@
 []
 
 [Outputs]
-  [./exodus]
-    type = Exodus
-    interval = 1
-  [../]
+#  [./exodus]
+#    type = Exodus
+#    interval = 1
+#  [../]
 #  checkpoint = true
 #  csv = true
 []

@@ -1,5 +1,9 @@
+[Debug]
+  show_actions=true
+[]
+
 [Mesh]
-  [GMG]
+  [gmg]
     type = DistributedRectilinearMeshGenerator
     dim = 3
     nx = 520
@@ -12,6 +16,7 @@
     zmin = 0
     zmax = 5200
   []
+  construct_node_list_from_side_list = false
   # uniform_refine = 2
   #[Partitioner]
   #  type = PetscExternalPartitioner
@@ -68,7 +73,7 @@
 
 [UserObjects]
   [./voronoi]
-    type = PolycrystalVoronoi
+    type = FauxPolycrystalVoronoi
     int_width = 0
   [../]
 []
@@ -464,7 +469,7 @@
     material_property_names = 'Va hb kvbub hm kvmatrix '
     function = '(hm/kvmatrix + hb/kvbub) / Va^2'
     derivative_order = 2
-    outputs = exodus
+  #  outputs = exodus
   [../]
   [./chig]
     type = DerivativeParsedMaterial
@@ -473,7 +478,7 @@
     material_property_names = 'Va hb kgbub hm kgmatrix '
     function = '(hm/kgmatrix + hb/kgbub) / Va^2'
     derivative_order = 2
-    outputs = exodus
+ #   outputs = exodus
   [../]
 []
 
@@ -521,13 +526,13 @@
     var_name_base = etab
     op_num = 1
   [../]
-  [./feature_counter]
-    type = FeatureFloodCount
-    variable = etab0
-    threshold = 0.5
-    compute_var_to_feature_map = true
-    execute_on = 'initial timestep_end'
-  [../]
+#  [./feature_counter]
+#    type = FeatureFloodCount
+#    variable = etab0
+#    threshold = 0.5
+#    compute_var_to_feature_map = true
+#    execute_on = 'initial timestep_end'
+#  [../]
   [./Volume]
     type = VolumePostprocessor
     execute_on = 'initial'
@@ -554,28 +559,37 @@
   scheme = bdf2
   #solve_type = NEWTON
   solve_type = PJFNK
-  petsc_options_iname = '-pc_type -pc_asm_overlap -sub_pc_type'
-  petsc_options_value = 'asm      1               lu'
+ # petsc_options_iname = '-pc_type -pc_asm_overlap -sub_pc_type'
+ # petsc_options_value = 'asm      1               lu'
+  petsc_options_iname = '-pc_type 
+                         -hmg_inner_pc_hypre_boomeramg_stong_threshold 
+                         -hmg_inner_pc_hypre_boomeramg_agg_nl
+                         -hmg_inner_pc_hypre_boomeramg_print_statistics
+                         -pc_hmg_reuse_interpolation
+                         -hmg_inner_pc_hmg_use_subspace_coarsening
+                         -matmaijptap_via'
+  petsc_options_value = 'hmg      0.7 2 1 1 1 allatonce'
   l_max_its = 45
   l_tol = 1.0e-4
   nl_rel_tol = 1.0e-8
   start_time = 0.0
-  num_steps = 100
+  num_steps = 20
+  dt = 8
   # end_time = 1.0e9
   nl_abs_tol = 1e-9
-  [./TimeStepper]
-    type = IterationAdaptiveDT
-    dt = 0.5
-    optimal_iterations = 8
-    iteration_window = 2
-  [../]
+ # [./TimeStepper]
+ #   type = IterationAdaptiveDT
+ #   dt = 0.5
+ #   optimal_iterations = 8
+ #   iteration_window = 2
+ # [../]
 []
 
 [Outputs]
-  [./exodus]
-    type = Exodus
-    interval = 1
-  [../]
-  checkpoint = true
-  csv = true
+ # [./exodus]
+ #   type = Exodus
+ #   interval = 1
+ # [../]
+ # checkpoint = true
+ # csv = true
 []
