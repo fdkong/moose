@@ -303,6 +303,9 @@ protected:
   /// The min/max values for x,y,z component
   Real &_xmin, &_xmax, &_ymin, &_ymax, &_zmin, &_zmax;
 
+  /// Number of cores for partition
+  dof_id_type _num_cores_for_partition;
+
   /// The type of element to build
   ElemType _elem_type;
 
