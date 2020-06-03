@@ -58,6 +58,8 @@ DistributedRectilinearMeshGenerator::validParams()
   params.addParam<Real>("ymax", 1.0, "Upper Y Coordinate of the generated mesh");
   params.addParam<Real>("zmax", 1.0, "Upper Z Coordinate of the generated mesh");
 
+  params.addParam<dof_id_type>("num_cores_for_partition", 0, "Number of cores used for partition");
+
   MooseEnum elem_types(
       "EDGE EDGE2 EDGE3 EDGE4 QUAD QUAD4 QUAD8 QUAD9 TRI3 TRI6 HEX HEX8 HEX20 HEX27 TET4 TET10 "
       "PRISM6 PRISM15 PRISM18 PYRAMID5 PYRAMID13 PYRAMID14"); // no default
@@ -105,6 +107,7 @@ DistributedRectilinearMeshGenerator::DistributedRectilinearMeshGenerator(
     _ymax(declareMeshProperty("ymax", getParam<Real>("ymax"))),
     _zmin(declareMeshProperty("zmin", getParam<Real>("zmin"))),
     _zmax(declareMeshProperty("zmax", getParam<Real>("zmax"))),
+    _num_cores_for_partition(getParam<dof_id_type>("num_cores_for_partition")),
     _bias_x(getParam<Real>("bias_x")),
     _bias_y(getParam<Real>("bias_y")),
     _bias_z(getParam<Real>("bias_z")),
@@ -822,6 +825,12 @@ DistributedRectilinearMeshGenerator::build_cube(UnstructuredMesh & mesh,
   // Current processor ID
   const auto pid = comm.rank();
 
+  if (_num_cores_for_partition>num_procs)
+    mooseError("Number of cores for partition is too large ", _num_cores_for_partition);
+
+  if (!_num_cores_for_partition)
+    _num_cores_for_partition = num_procs;
+
   auto & boundary_info = mesh.get_boundary_info();
 
   std::unique_ptr<Elem> canonical_elem = libmesh_make_unique<T>();
@@ -838,8 +847,15 @@ DistributedRectilinearMeshGenerator::build_cube(UnstructuredMesh & mesh,
   dof_id_type num_local_elems;
   dof_id_type local_elems_begin;
   dof_id_type local_elems_end;
-  MooseUtils::linearPartitionItems(
-      num_elems, num_procs, pid, num_local_elems, local_elems_begin, local_elems_end);
+  if (pid<_num_cores_for_partition)
+    MooseUtils::linearPartitionItems(
+       num_elems, _num_cores_for_partition, pid, num_local_elems, local_elems_begin, local_elems_end);
+  else
+  {
+    num_local_elems = 0;
+    local_elems_begin = 0;
+    local_elems_end = 0;
+  }
 
   std::vector<std::vector<dof_id_type>> graph;
 
@@ -945,7 +961,7 @@ DistributedRectilinearMeshGenerator::build_cube(UnstructuredMesh & mesh,
   for (auto & ghost_id : ghost_elems)
   {
     // This is the processor ID the ghost_elem was originally assigned to
-    auto proc_id = MooseUtils::linearPartitionChunk(num_elems, num_procs, ghost_id);
+    auto proc_id = MooseUtils::linearPartitionChunk(num_elems, _num_cores_for_partition, ghost_id);
 
     // Using side-effect insertion on purpose
     ghost_elems_to_request[proc_id].push_back(ghost_id);
