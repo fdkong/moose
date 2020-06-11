@@ -117,8 +117,8 @@ DerivativeParsedMaterialHelperTempl<is_ad>::recurseDerivative(unsigned int var,
     mooseError("Failed to take order ", order, " derivative in material ", _name);
 
   // optimize
-  if (!_disable_fpoptimizer)
-    current._F->Optimize();
+  //if (!_disable_fpoptimizer)
+  //  current._F->Optimize();
 
   // proceed only if the derivative is not zero
   if (!current._F->isZero())
