@@ -4843,21 +4843,29 @@ FEProblemBase::init()
   if (!_skip_nl_system_check && _solve && n_vars == 0)
     mooseError("No variables specified in the FEProblemBase '", name(), "'.");
 
-  // MPI_Barrier(PETSC_COMM_WORLD);
-  // std::cout<<" Before ghostGhostedBoundaries  "<<std::endl;
+   MPI_Barrier(PETSC_COMM_WORLD);
+   std::cout<<" Before ghostGhostedBoundaries  "<<std::endl;
 
   //ghostGhostedBoundaries(); // We do this again right here in case new boundaries have been added
 
-  
-  // MPI_Barrier(PETSC_COMM_WORLD);
-  // std::cout<<" after ghostGhostedBoundaries "<<std::endl;
+
+   MPI_Barrier(PETSC_COMM_WORLD);
+   std::cout<<" after ghostGhostedBoundaries "<<std::endl;
 
   // do not assemble system matrix for JFNK solve
   if (solverParams()._type == Moose::ST_JFNK)
     _nl->turnOffJacobian();
 
+  MPI_Barrier(PETSC_COMM_WORLD);
+  std::cout<<" before _nl->init() "<<std::endl;
   _nl->init();
+  MPI_Barrier(PETSC_COMM_WORLD);
+  std::cout<<" after _nl->init() "<<std::endl;
+  MPI_Barrier(PETSC_COMM_WORLD);
+  std::cout<<" before _nl->init() "<<std::endl;
   _aux->init();
+  MPI_Barrier(PETSC_COMM_WORLD);
+  std::cout<<" after _aux->init() "<<std::endl;
 
   MPI_Barrier(PETSC_COMM_WORLD);
   std::cout<<" Before _eq.init() "<<std::endl;
@@ -4876,23 +4884,23 @@ FEProblemBase::init()
     _displaced_mesh->meshChanged();
 
   MPI_Barrier(PETSC_COMM_WORLD);
-  std::cout<<" After _mesh.meshChanged() "<<std::endl; 
+  std::cout<<" After _mesh.meshChanged() "<<std::endl;
 
-  
-  std::cout<<" Before _nl->update() "<<std::endl; 
+
+  std::cout<<" Before _nl->update() "<<std::endl;
   _nl->update();
 
   MPI_Barrier(PETSC_COMM_WORLD);
-  std::cout<<" After _nl->update "<<std::endl; 
+  std::cout<<" After _nl->update "<<std::endl;
 
-  
-  std::cout<<" Before _assembly init "<<std::endl; 
+
+  std::cout<<" Before _assembly init "<<std::endl;
   for (THREAD_ID tid = 0; tid < libMesh::n_threads(); ++tid)
     _assembly[tid]->init(_cm.get());
 
   MPI_Barrier(PETSC_COMM_WORLD);
-  std::cout<<" After _assembly[tid]->init "<<std::endl; 
-  
+  std::cout<<" After _assembly[tid]->init "<<std::endl;
+
   std::cout<<" before _displaced_problem->init() "<<std::endl;
   if (_displaced_problem)
     _displaced_problem->init();
