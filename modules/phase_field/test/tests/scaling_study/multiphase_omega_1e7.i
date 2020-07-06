@@ -2,6 +2,11 @@
   show_actions=true
 []
 
+[GlobalParams]
+  enable_jit = false
+  enable_ad_cache = false
+[]
+
 [Mesh]
   [gmg]
     type = DistributedRectilinearMeshGenerator

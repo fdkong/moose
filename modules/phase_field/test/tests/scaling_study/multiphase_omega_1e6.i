@@ -2,6 +2,11 @@
   show_actions=true
 []
 
+[GlobalParams]
+  enable_jit = false
+  enable_ad_cache = false
+[]
+
 [Mesh]
   [gmg]
   type = DistributedRectilinearMeshGenerator
@@ -82,6 +87,26 @@
     [../]
   [../]
 []
+
+#[BCs]
+#  [./Periodic]
+#    [./left_right]
+#      primary = 'left'
+#      secondary = 'right'
+#      translation = '520 0 0'
+#    [../]
+#    [./bottom_top]
+#      primary = 'bottom'
+#      secondary = 'top'
+#      translation = '0 520 0'
+#    [../]
+#    [./back_front]
+#      primary = 'back'
+#      secondary = 'front'
+#      translation = '0 0 520'
+#    [../]
+#  [../]
+#[]
 
 [Kernels]
 # Order parameter eta_b0 for bubble phase
