@@ -4846,7 +4846,7 @@ FEProblemBase::init()
    MPI_Barrier(PETSC_COMM_WORLD);
    std::cout<<" Before ghostGhostedBoundaries  "<<std::endl;
 
-  //ghostGhostedBoundaries(); // We do this again right here in case new boundaries have been added
+  ghostGhostedBoundaries(); // We do this again right here in case new boundaries have been added
 
 
    MPI_Barrier(PETSC_COMM_WORLD);
