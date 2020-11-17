@@ -8,7 +8,7 @@
 //* https://www.gnu.org/licenses/lgpl-2.1.html
 
 #ifdef HAVE_GPERFTOOLS
-#include "gperftools/profiler.h"
+#include "gperftools/heap-profiler.h"
 #endif
 
 // MOOSE includes
@@ -348,7 +348,7 @@ MooseApp::MooseApp(InputParameters parameters)
     static std::string profile_file =
         std::getenv("MOOSE_PROFILE_BASE") + std::to_string(_comm->rank()) + ".prof";
     _profiling = true;
-    ProfilerStart(profile_file.c_str());
+    HeapProfilerStart(profile_file.c_str());
   }
 #endif
 
@@ -468,7 +468,7 @@ MooseApp::~MooseApp()
 {
 #ifdef HAVE_GPERFTOOLS
   if (_profiling)
-    ProfilerStop();
+    HeapProfilerStop();
 #endif
   _action_warehouse.clear();
   _executioner.reset();
