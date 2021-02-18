@@ -697,7 +697,6 @@ PetscErrorCode
 mooseSlepcEigenFormFunctionB(SNES snes, Vec x, Vec r, void * ctx)
 {
   PetscFunctionBegin;
-
   EigenProblem * eigen_problem = static_cast<EigenProblem *>(ctx);
   NonlinearEigenSystem & eigen_nl = eigen_problem->getNonlinearEigenSystem();
 
