@@ -59,7 +59,7 @@
 
 [Transfers]
   [./to_sub]
-    type = MultiAppMeshFunctionTransfer
+    type = MultiAppOldMeshFunctionTransfer
     direction = to_multiapp
     source_variable = u
     variable = aux_u
@@ -70,5 +70,9 @@
 []
 
 [Outputs]
-  exodus = true
+#  exodus = true
+  [./perf_graph]
+    type = PerfGraphOutput
+    level = 3
+  [../]
 []
